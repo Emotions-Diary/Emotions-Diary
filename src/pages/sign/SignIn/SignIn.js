@@ -33,7 +33,6 @@ const SignIn = () => {
 
     dispatch(getUserThunk(email)).then((res) => {
       const data = res.payload;
-      console.log(res.payload);
       if (email === '') {
         alertEmailSpanRef.current.innerText = '계정을 입력해주세요.';
         alertEmailSpanRef.current.style.display = 'block';
@@ -50,7 +49,7 @@ const SignIn = () => {
             alertPasswordSpanRef.current.style.display = 'block';
           } else {
             if (data.password === password) {
-              dispatch(signInAction({ userName: email, loginStatus: true }));
+              dispatch(signInAction({ userEmail: email, loginStatus: true }));
               navigate('/');
             } else {
               alertEmailSpanRef.current.style.display = 'none';

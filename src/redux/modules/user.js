@@ -43,7 +43,7 @@ export const getUserThunk = createAsyncThunk(
 );
 
 const initialState = {
-  userName: '',
+  userEmail: '',
   loginStatus: false,
 };
 
@@ -52,13 +52,13 @@ export const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     signInAction: (state, action) => {
-      state.userName = action.payload.userName;
+      state.userEmail = action.payload.userEmail;
       state.loginStatus = action.payload.loginStatus;
     }
   },
   extraReducers: (builder) => {
     builder.addCase(addUserThunk.fulfilled, (state, { payload }) => {
-      state.emoitons = payload.email;
+      state.email = payload.email;
     });
   },
 });

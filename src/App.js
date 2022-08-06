@@ -9,17 +9,23 @@ import Write from './pages/Write';
 import Detail from './pages/Detail';
 
 // Redux import
-import {useSelector} from 'react-redux';
+import { useSelector } from 'react-redux';
 
 function App() {
-  const loginStatus = useSelector((state) => state.user.loginStatus)
+  const loginStatus = useSelector((state) => state.user.loginStatus);
   return (
     <Routes>
-      <Route path='/' exact="true" element={loginStatus ? <Main /> : <SignIn />} />
-      <Route path="/" exact="true" element={<SignIn />} />
+      <Route
+        path="/"
+        exact="true"
+        element={loginStatus ? <Main /> : <SignIn />}
+      />
       <Route path="/signup" element={<SignUp />} />
-      <Route path="/write" element={<Write />} />
-      <Route path="/detail/:id" element={<Detail />} />
+      <Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
+      <Route
+        path="/detail/:id"
+        element={loginStatus ? <Detail /> : <SignIn />}
+      />
     </Routes>
   );
 }
