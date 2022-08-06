@@ -8,6 +8,7 @@ export const emailDupCheckThunk = createAsyncThunk(
     const resData = await axios
       .get('http://localhost:5001/users')
       .then((res) => res.data);
+    console.log(resData);
     resData.forEach((user) => {
       if (payload === user.email) check = true;
     });
@@ -54,7 +55,7 @@ export const userSlice = createSlice({
     signInAction: (state, action) => {
       state.userEmail = action.payload.userEmail;
       state.loginStatus = action.payload.loginStatus;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(addUserThunk.fulfilled, (state, { payload }) => {
@@ -62,6 +63,6 @@ export const userSlice = createSlice({
     });
   },
 });
- 
-export const {signInAction} = userSlice.actions;
+
+export const { signInAction } = userSlice.actions;
 export default userSlice.reducer;
