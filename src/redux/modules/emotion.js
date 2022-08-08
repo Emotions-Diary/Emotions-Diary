@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const emotionSlice = createSlice({
   name: 'emotion',
-  initialState: { emotion: [] },
+  initialState: { emotions: [] },
   reducers: {},
   extraReducers: {},
 });
