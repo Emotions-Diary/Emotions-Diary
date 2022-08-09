@@ -13,8 +13,26 @@ import {
   WriteDescript,
   InputArea,
   WriteInput,
-  InputArea2
+  InputArea2,
+  WriteMongle,
+  MongleArea,
+  TitleArea,
+  ContentArea,
+  WriteButton
 } from './Write.styled';
+import {
+  m_blue_OL,
+  m_blue,
+  m_green_OL,
+  m_green,
+  m_orange_OL,
+  m_orange,
+  m_pink_OL,
+  m_pink,
+  m_yellow_OL,
+  m_yellow,
+  mongle_logo,
+} from '../../static/images/images';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 // moment import
 import moment from 'moment';
@@ -64,10 +82,23 @@ const Write = () => {
           <ArrowBack />
         </ArrowArea>
       </WriteHeader>
-      <WriteDescript>
-        오늘 몽글러의 기분은?
-      </WriteDescript>
-      <InputArea>닉네임 :<WriteInput/></InputArea> <InputArea2>비밀번호 :<WriteInput/></InputArea2>
+      <MongleArea>
+      <WriteMongle emotion={m_blue} emotion_OL={m_blue_OL} />
+      <WriteMongle emotion={m_green} emotion_OL={m_green_OL} />
+      <WriteMongle emotion={m_orange} emotion_OL={m_orange_OL} />
+      <WriteMongle emotion={m_pink} emotion_OL={m_pink_OL} />
+      <WriteMongle emotion={m_yellow} emotion_OL={m_yellow_OL} />
+      </MongleArea>
+      <WriteDescript>오늘 몽글러의 기분은?</WriteDescript>
+      <InputArea>
+        닉네임 :<WriteInput />
+      </InputArea>{' '}
+      <InputArea2>
+        비밀번호 :<WriteInput type="password"/>
+      </InputArea2>
+      <TitleArea placeholder='제목'></TitleArea>
+      <ContentArea placeholder="오늘 하루 어떠셨나요??&#13;&#10;오늘 하루의 응어리를 덜어내보세요"></ContentArea>
+      <WriteButton>작성하기</WriteButton>
     </WriteBox>
   );
 };

@@ -2,6 +2,8 @@ import styled from 'styled-components';
 import Mongles from '../../static/images/mongles/mongles_group.png';
 import '../../static/fonts/fonts.css';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+import { hover } from '@testing-library/user-event/dist/hover';
+import { findByPlaceholderText } from '@testing-library/react';
 
 export const WriteBox = styled.form`
   width: 485px;
@@ -24,6 +26,9 @@ export const ArrowBack = styled(MdOutlineArrowBackIosNew)`
   color: #d7703f;
   margin-left: 6px;
   margin-top: 6px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 export const ArrowArea = styled.div`
   width: 30px;
@@ -32,6 +37,9 @@ export const ArrowArea = styled.div`
   background-color: #f7f6f1;
   margin-top: 10px;
   margin-left: 20px;
+  &:hover{
+    cursor: pointer;
+  }
 `;
 export const WriteDescript = styled.div`
   font-family: 'Cafe24Ssurround';
@@ -42,25 +50,20 @@ export const WriteDescript = styled.div`
   top: 100px;
 `;
 export const WriteInput = styled.input`
+font-family: 'Cafe24Ssurround';
   border-color: #d7703f;
   width: 100px;
   margin-left: 10px;
   border-left-width: 0px;
   border-right-width: 0px;
   border-top-width: 0px;
-  border-bottom-width: 3.5px;
-  border-radius: 2pt;
-`;
-export const InputArea = styled.div`
+  border-bottom-width: 2.8px;
+  /* border-radius: 2pt; */
+  padding-bottom: 1px;
   font-size: 11px;
-  font-family: 'Cafe24Ssurround';
-  width: 40%;
-  height: 3%;
-  position: absolute;
-  top: 200px;
-  display: flex;
-  margin-left: 50px;
-  color: #d7703f;
+  &:focus {
+    outline: none;
+  }
 `;
 export const InputArea2 = styled.div`
   font-size: 11px;
@@ -68,9 +71,89 @@ export const InputArea2 = styled.div`
   width: 40%;
   height: 3%;
   position: absolute;
-  top: 200px;
+  top: 225px;
   left: 180px;
   display: flex;
   margin-left: 50px;
   color: #d7703f;
 `;
+export const InputArea = styled.div`
+  font-size: 11px;
+  font-family: 'Cafe24Ssurround';
+  width: 40%;
+  height: 3%;
+  position: absolute;
+  top: 225px;
+  display: flex;
+  margin-left: 50px;
+  color: #d7703f;
+`;
+export const WriteMongle = styled.div`
+  background-repeat: no-repeat;
+  background-image: url(${(props) => props.emotion ? props.emotion : 'm_orange'});
+  background-size: contain;
+  width: 60px;
+  height: 50px;
+  margin: 5px;
+  &:hover {
+    background-image: url(${(props) => props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
+  }
+`;
+export const MongleArea = styled.div`
+  width: 100%;
+  height: 100px;
+  display: flex;
+  margin-left: 50px;
+  position: absolute;
+  top: 140px;
+`;
+export const TitleArea = styled.textarea`
+  width: 80%;
+  height: 20px;
+  outline: 2px solid #d7703f;
+  position: absolute;
+  top: 275px;
+  border: none;
+  border-radius: 10px;
+  margin-left: 40px;
+  padding-top: 5px;
+  padding-left: 10px;
+  overflow:hidden;
+  resize: none;
+&::placeholder{
+font-family: 'Cafe24Ssurround';
+color: #9b9b9b;
+}`
+;
+export const ContentArea = styled.textarea`
+width: 80%;
+height: 160px;
+margin-left: 40px;
+position: absolute;
+top: 315px;
+outline: 2px solid #d7703f;
+border: none;
+border-radius: 10px;
+padding-top: 5px;
+padding-left: 10px;
+&::placeholder{
+font-family: 'Cafe24Ssurround';
+color: #9b9b9b;
+}`;
+export const WriteButton = styled.button`
+width: 120px;
+height: 60px;
+font-size: 20px;
+background-color: #d7703f;
+outline: none;
+border: none;
+border-radius: 10px;
+color: #f7f6f1;
+position: absolute;
+top: 500px;
+margin-left: 170px;
+&:hover{
+    cursor: pointer;
+    outline: #d7703f solid 1.5px;
+}
+`
