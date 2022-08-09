@@ -6,7 +6,7 @@ export const emailDupCheckThunk = createAsyncThunk(
   async (payload, thunkAPI) => {
     let check = false;
     const resData = await axios
-      .get('http://localhost:5001/users')
+      .get('http://localhost:5001/user')
       .then((res) => res.data)
       .catch((error) => console.log(error));
     resData.forEach((user) => {
@@ -27,7 +27,7 @@ export const addUserThunk = createAsyncThunk(
     };
 
     const resData = await axios
-      .post('http://localhost:5001/users', data)
+      .post('http://localhost:5001/user', data)
       .then((res) => res.data);
     return thunkAPI.fulfillWithValue(resData);
   }
@@ -37,7 +37,7 @@ export const getUserThunk = createAsyncThunk(
   'user/getUser',
   async (payload, thunkAPI) => {
     const resData = await axios
-      .get('http://localhost:5001/users')
+      .get('http://localhost:5001/user')
       .then((res) => res.data);
     const match = resData.find((user) => user.email === payload);
     return thunkAPI.fulfillWithValue(match);

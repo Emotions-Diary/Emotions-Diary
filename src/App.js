@@ -1,15 +1,12 @@
-// CSS import
-import './App.css';
-
 // Router import
 import { Routes, Route } from 'react-router-dom';
 
 // Component import
 import SignIn from './pages/sign/SignIn/SignIn';
 import SignUp from './pages/sign/SignUp/SignUp';
-import Main from './pages/Main';
-import Write from './pages/Write';
-import Detail from './pages/Detail';
+import Main from './pages/main/Main';
+import Write from './pages/write/Write';
+import Detail from './pages/detail/Detail';
 
 // Redux import
 import { useSelector } from 'react-redux';

@@ -15,6 +15,7 @@ import {
   SignInHeader,
   SignInTitle,
   SignInDescript,
+  SignInDescriptSpan,
   SignInFormGroup,
   SignInInputGroup,
   SignInInput,
@@ -76,11 +77,10 @@ const SignIn = () => {
       <SignInHeader>
         <Circle />
       </SignInHeader>
-      <SignInTitle>SIGN IN</SignInTitle>
+      <SignInTitle>LOG IN</SignInTitle>
       <SignInDescript>
-        오늘도 몽글러들과 함께
-        <br />
-        하루를 나눠볼까요?
+        <SignInDescriptSpan>오늘도 몽글러들과 함께</SignInDescriptSpan>
+        <SignInDescriptSpan>하루를 나눠볼까요?</SignInDescriptSpan>
       </SignInDescript>
       <SignInFormGroup>
         <SignInInputGroup>
