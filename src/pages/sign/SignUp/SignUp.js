@@ -18,6 +18,7 @@ import {
   SignInHeader,
   SignInTitle,
   SignInDescript,
+  SignInDescriptSpan,
   SignInFormGroup,
   SignUpInputGroup,
   SignUpInput,
@@ -64,7 +65,7 @@ function SignUp() {
     } else {
       passwdReSpanRef.current.style.display = 'none';
     }
-  }, [passwd, passwdRe]);
+  }, [passwdRe]);
 
   const emailModify = () => {
     emailRef.current.disabled = false;
@@ -87,20 +88,20 @@ function SignUp() {
           emailSpanRef.current.innerText = '이메일 형식에 맞지 않습니다.';
         } else if (email !== '') {
           emailRef.current.disabled = true;
-          emailSpanRef.current.style.display = 'block';
-          emailSpanRef.current.style.color = '#6360ff';
-          emailSpanRef.current.innerText = '사용 가능한 메일입니다.';
+          emailSpanRef.current.style.display = 'none';
           emailButtonRef.current.innerText = '수정하기';
+          alert('사용 가능한 메일입니다.');
           setDupCheck(true);
         }
       }
     });
   };
 
-  function signUpAccount(event) {
+  const signUpAccount = (event) => {
     event.preventDefault();
     if (dupCheck) {
       if (strengthBarRef.current.state.score <= 2) {
+        console.log(strengthBarRef.current)
         passwdRef.current.focus();
         passwdSpanRef.current.style.display = 'block';
         passwdReSpanRef.current.style.display = 'none';
@@ -117,7 +118,7 @@ function SignUp() {
       emailSpanRef.current.style.display = 'block';
       emailSpanRef.current.innerText = '중복 확인을 진행해주세요.';
     }
-  }
+  };
 
   return (
     <SignUpBox onSubmit={(event) => signUpAccount(event)}>
@@ -126,9 +127,8 @@ function SignUp() {
       </SignInHeader>
       <SignInTitle>SIGN UP</SignInTitle>
       <SignInDescript>
-        몽글몽글해지는 순간
-        <br />
-        당신만의 하루를 담아보세요!
+        <SignInDescriptSpan>몽글몽글해지는 순간</SignInDescriptSpan>
+        <SignInDescriptSpan>당신만의 하루를 담아보세요!</SignInDescriptSpan>
       </SignInDescript>
       <SignInFormGroup>
         <SignUpInputGroup>
@@ -160,7 +160,7 @@ function SignUp() {
           />
           <PasswordStrengthBar
             password={passwd}
-            style={{ display: passwd ? 'block' : 'none' }}
+            style={{ display: 'none' }}
             ref={strengthBarRef}
           />
           <AlertSpan ref={passwdSpanRef}>패스워드가 취약합니다!</AlertSpan>
@@ -183,7 +183,7 @@ function SignUp() {
             onChange={(e) => setPhone(e.target.value)}
             minLength="9"
             maxLength="13"
-            placeholder="Phone number (00*-000*-0000)"
+            placeholder="Phone number"
             pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
             required
           />
