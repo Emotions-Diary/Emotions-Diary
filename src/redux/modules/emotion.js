@@ -34,16 +34,6 @@ export const addEmotionThunk = createAsyncThunk(
   }
 );
 
-// 글쓰는 창에 들어가면 get으로 유저 정보를 가져와서
-
-// export const getemotionThunk = createAsyncThunk(
-//     'user/getemotionThunk',
-//     async (payload, thunkAPI) => {
-//     const resData = await axios
-//     .get('http://localhost:5001/users')
-//     .then((res) => res.data);
-//       }  )
-
 const initialState = {
   is_loaded: true,
   emotion: [],
