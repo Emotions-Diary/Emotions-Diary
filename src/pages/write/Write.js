@@ -40,7 +40,6 @@ import {
 import moment from 'moment';
 
 const Write = () => {
-  const [writes, setwrites] = useState(null);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
   const [nickName, setNickName] = useState('');
@@ -48,14 +47,13 @@ const Write = () => {
   const [link, setLink] = useState('');
   const [link_OL, setLink_OL] = useState('');
   const [createDate, setCreateDate] = useState([]);
-  const [email, setEmail] = useState('');
   const [orangeState, setOrangeState] = useState(true);
   const [blueState, setBlueState] = useState(true);
   const [greenState, setGreenState] = useState(true);
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
-  const userEmail = useSelector((state) => state.user);
-  console.log(userEmail);
+  const userEmail = useSelector((state) => state.user.userEmail);
+
   const clickBlue = () => {
     setLink(m_blue);
     setLink_OL(m_blue_OL);
@@ -103,11 +101,6 @@ const Write = () => {
   };
   const dispatch = useDispatch();
 
-  // dispatch(addEmotionThunk(writes));
-  // dispatch(emotionActions.emotionAction(emotions))
-  // axios.post('http://localhost:5001/users', emotions);
-  // };
-
   const nowTime = moment()
     .format('YYYY-MM-DD')
     .split('-')
@@ -120,14 +113,6 @@ const Write = () => {
     setCreateDate(nowTime);
   }, []);
 
-  //시간값
-
-  // const getData = axios
-  //   .get('http://localhost:5001/user')
-  //   .then((res) => res.data)
-  //   .then((res) => console.log(res));
-  // console.log(getData);
-
   const combineWrite = () => {
     const newWrite = {
       emotion_title: title,
@@ -136,15 +121,12 @@ const Write = () => {
       emotion_link_OL: link_OL,
       emotion_password: password,
       emotion_createDate: createDate,
-      // "user_email": "",
+      user_email: userEmail,
       user_nickName: nickName,
     };
     dispatch(addEmotionThunk(newWrite));
   };
 
-  // useEffect(()=>{
-  // userMemoris()},[]
-  // )
   return (
     <WriteBox
       onSubmit={(e) => {
@@ -222,27 +204,3 @@ const Write = () => {
   );
 };
 export default Write;
-
-//axios.get으로 유저 정보값 가져오고
-//input값들을 api설계에 맞춰서 정리한 후
-//가져온 get에서 이메일값을 추가 한후  post
-// {
-//     emotion_id: ‘’, state
-//     emotion_title: ‘’, state
-//     emotion_content: ‘’, state
-//     emotion_link: ‘’,
-//     emotion_password: ‘’, state
-//     emotion_createDate: ’’,
-//     user_email: ‘’,  ** 이 값을 get에서 가져온후 다시 입력해서 보냄
-//     user_nickName: ‘’,
-//   }
-// {
-//   "emotion_title": "",
-//   "emotion_content": "",
-//   "emotion_link": ''
-//   "emotion_link_OL":
-//   "emotion_password": "",
-//   "emotion_createDate": "",
-//   "user_email": "",
-//   "user_nickName": ""
-// },
