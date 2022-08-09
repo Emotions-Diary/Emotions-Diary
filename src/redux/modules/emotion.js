@@ -15,7 +15,7 @@ export const getEmotionThunk = createAsyncThunk(
 export const addEmotionThunk = createAsyncThunk(
   'emotion/addemotionThunk',
   async (payload, thunkAPI) => {
-    console.log(payload)
+    console.log(payload);
     const data = {
       emotion_id: payload.emotion_id,
       emotion_title: payload.emotion_title,
@@ -24,7 +24,7 @@ export const addEmotionThunk = createAsyncThunk(
       emotion_link_OL: payload.emotion_link_OL,
       emotion_password: payload.emotion_password,
       emotion_createDate: payload.emotion_createDate,
-      // user_email: payload.user_email,
+      user_email: payload.user_email,
       user_nickName: payload.user_nickName,
     };
     const resData = await axios

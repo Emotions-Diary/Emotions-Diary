@@ -104,12 +104,7 @@ const Main = () => {
             })
           )}
         </MainMongleBox>
-
-        <MainMongleAdd className="material-symbols-outlined">
-          add_circle
-        </MainMongleAdd>
-
-        <MainMongleAdd>+</MainMongleAdd>
+        <MainMongleAdd onClick={() => navigate('/write')}>+</MainMongleAdd>
       </MainBox>
     </>
   );
