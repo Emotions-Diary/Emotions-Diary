@@ -5,7 +5,6 @@ import '../../static/fonts/fonts.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { signInAction } from '../../redux/modules/user';
 
-
 // Package import
 import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
@@ -50,6 +49,8 @@ const Main = () => {
     dispatch(signInAction({ userEmail: '', loginStatus: false }));
     navigate('/');
   };
+  const userEmail = useSelector((state) => state.user.userEmail);
+  console.log(userEmail);
 
   return (
     <>
@@ -110,7 +111,9 @@ const Main = () => {
           <MainMongle emotion={m_blue} emotion_OL={m_blue_OL} />
           <MainMongle emotion={m_blue} emotion_OL={m_blue_OL} />
         </MainMongleBox>
-        <MainMongleAdd className="material-symbols-outlined">add_circle</MainMongleAdd>
+        <MainMongleAdd className="material-symbols-outlined">
+          add_circle
+        </MainMongleAdd>
       </MainBox>
     </>
   );

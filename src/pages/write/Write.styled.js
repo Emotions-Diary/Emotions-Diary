@@ -126,7 +126,7 @@ export const WriteMongle = styled.div`
   margin: 5px;
   &:hover {
     background-image: url(${(props) => props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
-  }
+  };
 `;
 
 export const MongleArea = styled.div`
