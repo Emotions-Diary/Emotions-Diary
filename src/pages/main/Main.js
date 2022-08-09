@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import '../static/fonts/fonts.css';
+import '../../static/fonts/fonts.css';
 
 // Package import
 import moment from 'moment';

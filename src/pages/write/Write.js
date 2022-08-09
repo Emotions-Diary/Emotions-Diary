@@ -1,30 +1,23 @@
 // React import
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-
-import styled from 'styled-components';
-import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { addEmotionThunk } from '../../redux/modules/emotion';
-
-const MainBody = styled.div`
-  /* background-color: #f7f6f1; */
-  background: yellow;
-  width: 3000px;
-  height: 1500px;
-  position: relative;
-`;
-
-const MainBox = styled.div`
-  position: absolute;
-  top: 50%;
-  bottom: 50%;
-  width: 1000px;
-  height: 1000px;
-  border: 2px solid black;
-  margin-left: 500px;
-  margin-bottom: 1000px;
-`;
+// style import
+import styled from 'styled-components';
+import {
+  WriteBox,
+  WriteHeader,
+  ArrowBack,
+  ArrowArea,
+  WriteDescript,
+  InputArea,
+  WriteInput,
+  InputArea2
+} from './Write.styled';
+import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+// moment import
+import moment from 'moment';
 
 const Write = () => {
   const [writes, setwrites] = useState(null);
@@ -33,7 +26,6 @@ const Write = () => {
   const [nickName, setNickName] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
-
 
   const onSubmitHandler = () => {
     setwrites({
@@ -66,34 +58,17 @@ const Write = () => {
   // )
 
   return (
-    <MainBody>
-      <input
-        value={title}
-        onChange={(event) => {
-          setTitle(event.target.value);
-        }}
-      ></input>
-      <input
-        value={content}
-        onChange={(event) => {
-          setContent(event.target.value);
-        }}
-      ></input>
-      <input
-        value={nickName}
-        onChange={(event) => {
-          setNickName(event.target.value);
-        }}
-      ></input>
-      <input
-        value={password}
-        onChange={(event) => {
-          setPassword(event.target.value);
-        }}
-      ></input>
-      <input></input>
-      <button onClick={onSubmitHandler}>추가하기</button>
-    </MainBody>
+    <WriteBox>
+      <WriteHeader>
+        <ArrowArea>
+          <ArrowBack />
+        </ArrowArea>
+      </WriteHeader>
+      <WriteDescript>
+        오늘 몽글러의 기분은?
+      </WriteDescript>
+      <InputArea>닉네임 :<WriteInput/></InputArea> <InputArea2>비밀번호 :<WriteInput/></InputArea2>
+    </WriteBox>
   );
 };
 export default Write;
