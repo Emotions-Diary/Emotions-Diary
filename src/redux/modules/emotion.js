@@ -1,6 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
-import { now } from 'moment';
+
+export const getEmotionThunk = createAsyncThunk(
+  'emotion/getEmotionThunk',
+  async (payload, thunkAPI) => {
+    const data = await axios
+      .get('http://localhost:5001/emotion')
+      .then((res) => res.data)
+      .catch((err) => console.err(err));
+    return thunkAPI.fulfillWithValue(data);
+  }
+);
 
 export const addEmotionThunk = createAsyncThunk(
   'user/addemotionThunk',
@@ -33,7 +43,8 @@ export const addEmotionThunk = createAsyncThunk(
 //       }  )
 
 const initialState = {
-  emotions: [],
+  is_loaded: true,
+  emotion: [],
 };
 
 const emotionSlice = createSlice({
@@ -42,7 +53,11 @@ const emotionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(addEmotionThunk.fulfilled, (state, action) => {
-      state.emotions = [...state.emotions, action.payload];
+      state.emotion = [...state.emotion, action.payload];
+    });
+    builder.addCase(getEmotionThunk.fulfilled, (state, action) => {
+      state.is_loaded = false;
+      state.emotion = action.payload;
     });
   },
 });
