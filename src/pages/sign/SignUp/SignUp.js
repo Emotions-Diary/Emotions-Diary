@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { emailDupCheckThunk, addUserThunk } from '../../../redux/modules/user';
 
 // Component import
-import Circle from '../../../components/Circle/Circle';
+import Circle from '../../../components/circle/Circle';
 
 // Package import
 import PasswordStrengthBar from 'react-password-strength-bar';

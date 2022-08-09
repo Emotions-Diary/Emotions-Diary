@@ -58,11 +58,7 @@ export const userSlice = createSlice({
       state.loginStatus = action.payload.loginStatus;
     },
   },
-  extraReducers: (builder) => {
-    builder.addCase(addUserThunk.fulfilled, (state, { payload }) => {
-      state.email = payload.email;
-    });
-  },
+  extraReducers: {}
 });
 
 export const { signInAction } = userSlice.actions;

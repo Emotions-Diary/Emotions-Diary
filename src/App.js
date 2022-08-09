@@ -21,6 +21,8 @@ function App() {
         exact="true"
         element={loginStatus ? <Main /> : <SignIn />}
       />
+      {/* <Route path="/" exact="true" element={<SignIn />} /> */}
+      {/* <Route path="/main" element={<Main />} /> */}
       <Route path="/signup" element={<SignUp />} />
       <Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
       <Route
