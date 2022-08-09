@@ -5,7 +5,7 @@ import '../static/fonts/fonts.css';
 import moment from 'moment';
 
 // Component import
-import Circle from '../components/Circle/Circle';
+import Circle from '../../components/Circle/Circle';
 
 import {
   m_blue_OL,
@@ -19,7 +19,7 @@ import {
   m_yellow_OL,
   m_yellow,
   mongle_logo,
-} from '../static/images/images';
+} from '../../static/images/images';
 
 const Main = () => {
   const now = moment();

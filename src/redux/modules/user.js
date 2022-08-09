@@ -19,6 +19,7 @@ export const emailDupCheckThunk = createAsyncThunk(
 export const addUserThunk = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
+    
     const data = {
       email: payload.email,
       password: payload.password,

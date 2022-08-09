@@ -1,4 +1,7 @@
-// Package import
+// CSS import
+import './App.css';
+
+// Router import
 import { Routes, Route } from 'react-router-dom';
 
 // Component import
@@ -13,6 +16,7 @@ import { useSelector } from 'react-redux';
 
 function App() {
   const loginStatus = useSelector((state) => state.user.loginStatus);
+
   return (
     <Routes>
       <Route
