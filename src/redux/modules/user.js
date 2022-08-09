@@ -54,6 +54,7 @@ export const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     signInAction: (state, action) => {
+      console.log(action.payload.userEmail)
       state.userEmail = action.payload.userEmail;
       state.loginStatus = action.payload.loginStatus;
     },

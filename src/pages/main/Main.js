@@ -104,6 +104,11 @@ const Main = () => {
             })
           )}
         </MainMongleBox>
+
+        <MainMongleAdd className="material-symbols-outlined">
+          add_circle
+        </MainMongleAdd>
+
         <MainMongleAdd>+</MainMongleAdd>
       </MainBox>
     </>
