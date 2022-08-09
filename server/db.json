@@ -41,6 +41,18 @@
       "password": "Zerobeauty159!",
       "phone": "010-4113-4748",
       "id": 5
+    },
+    {
+      "email": "rladmsgP@naver.com",
+      "password": "rladmsgP12#$",
+      "phone": "010-1111-2222",
+      "id": 6
+    },
+    {
+      "email": "rladmsgP@naver.comm",
+      "password": "Zerobeauty159!",
+      "phone": "010-3113-4444",
+      "id": 7
     }
   ]
 }

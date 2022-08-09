@@ -7,8 +7,8 @@ export const emailDupCheckThunk = createAsyncThunk(
     let check = false;
     const resData = await axios
       .get('http://localhost:5001/users')
-      .then((res) => res.data);
-    console.log(resData);
+      .then((res) => res.data)
+      .catch((error) => console.log(error));
     resData.forEach((user) => {
       if (payload === user.email) check = true;
     });
