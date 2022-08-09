@@ -53,9 +53,6 @@ const Main = () => {
     'December',
   ];
 
-  const userEmail = useSelector((state) => state.user.userEmail);
-  console.log(userEmail);
-
   const signOut = () => {
     dispatch(signInAction({ userEmail: '', loginStatus: false }));
     navigate('/');
@@ -104,7 +101,7 @@ const Main = () => {
             })
           )}
         </MainMongleBox>
-        <MainMongleAdd>+</MainMongleAdd>
+        <MainMongleAdd onClick={() => navigate('/write')}>+</MainMongleAdd>
       </MainBox>
     </>
   );
