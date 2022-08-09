@@ -101,7 +101,6 @@ function SignUp() {
     event.preventDefault();
     if (dupCheck) {
       if (strengthBarRef.current.state.score <= 2) {
-        console.log(strengthBarRef.current)
         passwdRef.current.focus();
         passwdSpanRef.current.style.display = 'block';
         passwdReSpanRef.current.style.display = 'none';
