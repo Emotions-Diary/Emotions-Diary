@@ -1,6 +1,17 @@
 {
-	"emotion": [],
-	"users": [
+	"emotion": [
+		{
+			"emotion_id": "",
+			"emotion_title": "",
+			"emotion_content": "",
+			"emotion_link": "",
+			"emotion_password": "",
+			"emotion_createDate": "",
+			"user_email": "",
+			"user_nickName": ""
+		}
+	],
+	"user": [
 		{
 			"email": "tjdvlftkd@nvae.com",
 			"password": "Zerobeauty159!",
@@ -24,6 +35,12 @@
 			"password": "Zerobeauty159!",
 			"phone": "010-3113-4444",
 			"id": 7
+		},
+		{
+			"email": "cosmos195@naver.com",
+			"password": "Zerobeauty159!",
+			"phone": "010-4113-4748",
+			"id": 8
 		}
 	],
 	"detail": [

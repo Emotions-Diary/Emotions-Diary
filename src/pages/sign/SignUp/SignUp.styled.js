@@ -5,9 +5,10 @@ import '../../../static/fonts/fonts.css';
 export const SignUpBox = styled.form`
   width: 485px;
   height: 620px;
+  max-height: 700px;
   position: relative;
   box-sizing: border-box;
-  background: rgba(255, 255, 255);
+  background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
   border: 9px solid #d7703f;
@@ -20,26 +21,32 @@ export const SignInHeader = styled.div`
   height: 10%;
 `;
 export const SignInTitle = styled.div`
-  font-family: 'Cafe24SsurroundAir';
+  font-family: 'Cafe24Ssurround';
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 100px;
+  top: 110px;
   font-size: 50px;
   font-weight: bolder;
 `;
 export const SignInDescript = styled.div`
-  font-family: 'Cafe24Ssurround';
+  font-family: 'Cafe24SsurroundAir';
   width: 100%;
   font-size: 20px;
   text-align: center;
   position: absolute;
   top: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+`;
+export const SignInDescriptSpan = styled.span`
+  width: 100%;
 `;
 export const SignInFormGroup = styled.div`
   z-index: 1;
   position: absolute;
-  top: 230px;
+  top: 250px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -56,45 +63,47 @@ export const EmailGroup = styled.div`
   width: 100%;
   height: auto;
   display: flex;
-  /* justify-content: space-between; */
 `;
 export const EmailInput = styled.input`
+  background-color: #f7f6f1;
   width: 70%;
-  height: 30px;
+  height: 35px;
   border: 2px solid #d7703f;
-  border-radius: 10px;
+  border-radius: 10px 0 0 10px;
   font-size: 14px;
-  padding: 5px;
+  padding-left: 20px;
   ::placeholder {
     font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
   }
 `;
 export const EmailButton = styled.button`
-  width: 30%;
+  width: 32%;
   font-size: 17px;
   font-family: 'Cafe24Ssurround';
   background-color: #d7703f;
-  border-radius: 10px;
+  border-radius: 0 10px 10px 0;
   border: none;
   color: #f7f6f1;
-  font-size: 17px;
+  font-size: 14px;
 `;
 export const SignUpInput = styled.input`
-  width: 95%;
-  height: 30px;
+  background-color: #f7f6f1;
+  width: 91%;
+  height: 35px;
   border-radius: 10px;
   border: 2px solid #d7703f;
   font-size: 14px;
-  padding: 5px;
+  padding-left: 20px;
   ::placeholder {
     font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
   }
 `;
 export const SignUpButtonGroup = styled.div`
+  margin-top: 15px;
   display: flex;
-  gap: 30px;
+  gap: 15px;
 `;
 export const SignUpButton = styled.button`
   font-family: 'Cafe24Ssurround';
@@ -102,7 +111,7 @@ export const SignUpButton = styled.button`
   border-radius: 10px;
   border: none;
   color: #f7f6f1;
-  width: 125px;
+  width: 132px;
   height: 50px;
   font-size: 17px;
 `;
@@ -118,7 +127,7 @@ export const SignUpFooter = styled.div`
 `;
 export const AlertSpan = styled.span`
   display: none;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
   color: ${(props) => props.color || '#ff9696'};
 `;
