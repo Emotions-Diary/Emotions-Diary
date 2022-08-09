@@ -33,7 +33,7 @@ export const addEmotionThunk = createAsyncThunk(
 //       }  )
 
 const initialState = {
-emotions : []
+  emotions: [],
 };
 
 const emotionSlice = createSlice({
@@ -42,7 +42,7 @@ const emotionSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder.addCase(addEmotionThunk.fulfilled, (state, action) => {
-      state.emotions = [...state.emotions, action.payload]
+      state.emotions = [...state.emotions, action.payload];
     });
   },
 });

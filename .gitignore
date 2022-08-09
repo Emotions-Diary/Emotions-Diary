@@ -22,4 +22,8 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
+# server - json.db
+=======
+>>>>>>> d8d97651a282471720ee28fb1bfd8f62d87a0cb1
 /server/db.json
