@@ -13,13 +13,15 @@ export const getEmotionThunk = createAsyncThunk(
 );
 
 export const addEmotionThunk = createAsyncThunk(
-  'user/addemotionThunk',
+  'emotion/addemotionThunk',
   async (payload, thunkAPI) => {
+    console.log(payload);
     const data = {
       emotion_id: payload.emotion_id,
       emotion_title: payload.emotion_title,
       emotion_content: payload.emotion_content,
       emotion_link: payload.emotion_link,
+      emotion_link_OL: payload.emotion_link_OL,
       emotion_password: payload.emotion_password,
       emotion_createDate: payload.emotion_createDate,
       user_email: payload.user_email,

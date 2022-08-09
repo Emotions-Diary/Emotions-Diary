@@ -19,7 +19,6 @@ export const emailDupCheckThunk = createAsyncThunk(
 export const addUserThunk = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
-    
     const data = {
       email: payload.email,
       password: payload.password,
@@ -54,11 +53,12 @@ export const userSlice = createSlice({
   initialState: initialState,
   reducers: {
     signInAction: (state, action) => {
+      console.log(action.payload.userEmail);
       state.userEmail = action.payload.userEmail;
       state.loginStatus = action.payload.loginStatus;
     },
   },
-  extraReducers: {}
+  extraReducers: {},
 });
 
 export const { signInAction } = userSlice.actions;
