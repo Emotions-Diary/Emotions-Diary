@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 import { getUserThunk, signInAction } from '../../../redux/modules/user';
 
 // Component import
-import Circle from '../../../components/Circle/Circle';
+import Circle from '../../../components/circle/Circle';
 
 // CSS import
 import {
