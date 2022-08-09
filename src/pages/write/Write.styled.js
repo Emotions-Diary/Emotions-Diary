@@ -1,10 +1,18 @@
 import styled from 'styled-components';
-import Mongles from '../../static/images/mongles/mongles_group.png';
 import '../../static/fonts/fonts.css';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
-import { hover } from '@testing-library/user-event/dist/hover';
-import { findByPlaceholderText } from '@testing-library/react';
+import { mongle_logo } from '../../static/images/images';
 
+export const MongleLogo = styled.div`
+  position: absolute;
+  background-image: url(${mongle_logo});
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 50px;
+  left: 50px;
+  width: 270px;
+  height: 100px;
+`;
 export const WriteBox = styled.form`
   width: 485px;
   height: 620px;
@@ -26,7 +34,7 @@ export const ArrowBack = styled(MdOutlineArrowBackIosNew)`
   color: #d7703f;
   margin-left: 6px;
   margin-top: 6px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 `;
@@ -37,7 +45,7 @@ export const ArrowArea = styled.div`
   background-color: #f7f6f1;
   margin-top: 10px;
   margin-left: 20px;
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 `;
@@ -50,7 +58,7 @@ export const WriteDescript = styled.div`
   top: 100px;
 `;
 export const WriteInput = styled.input`
-font-family: 'Cafe24Ssurround';
+  font-family: 'Cafe24Ssurround';
   border-color: #d7703f;
   width: 100px;
   margin-left: 10px;
@@ -68,7 +76,7 @@ font-family: 'Cafe24Ssurround';
   }
 `;
 export const WriteInput2 = styled.input`
-/* font-family: 'Cafe24Ssurround'; */
+  /* font-family: 'Cafe24Ssurround'; */
   border-color: #d7703f;
   width: 120px;
   margin-right: 23px;
@@ -109,14 +117,13 @@ export const InputArea = styled.div`
   color: #d7703f;
 `;
 export const TextArea = styled.div`
-padding-top: 5px;
-`
+  padding-top: 5px;
+`;
 export const TextArea2 = styled.div`
-padding-top: 5px;
-width: 80px;
-margin-right: 5px;
-
-`
+  padding-top: 5px;
+  width: 80px;
+  margin-right: 5px;
+`;
 export const WriteMongle = styled.div`
   background-repeat: no-repeat;
   background-image: url(${(props) => props.emotion ? props.emotion : 'm_orange'});
@@ -126,7 +133,7 @@ export const WriteMongle = styled.div`
   margin: 5px;
   &:hover {
     background-image: url(${(props) => props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
-  };
+  }
 `;
 
 export const MongleArea = styled.div`
@@ -148,45 +155,46 @@ export const TitleArea = styled.textarea`
   margin-left: 40px;
   padding-top: 7px;
   padding-left: 12px;
-  overflow:hidden;
+  overflow: hidden;
   resize: none;
-&::placeholder{
-font-family: 'Cafe24Ssurround';
-color: #bfbfbf;
-}`
-;
+  &::placeholder {
+    font-family: 'Cafe24Ssurround';
+    color: #bfbfbf;
+  }
+`;
 export const ContentArea = styled.textarea`
-width: 80%;
-height: 160px;
-margin-left: 40px;
-position: absolute;
-top: 315px;
-outline: 2px solid #d7703f;
-border: none;
-border-radius: 10px;
-padding-top: 10px;
-padding-left: 12px;
-line-height:19px;
-&::placeholder{
-font-family: 'Cafe24Ssurround';
-color: #bfbfbf;
-}`;
+  width: 80%;
+  height: 160px;
+  margin-left: 40px;
+  position: absolute;
+  top: 315px;
+  outline: 2px solid #d7703f;
+  border: none;
+  border-radius: 10px;
+  padding-top: 10px;
+  padding-left: 12px;
+  line-height: 19px;
+  &::placeholder {
+    font-family: 'Cafe24Ssurround';
+    color: #bfbfbf;
+  }
+`;
 export const WriteButton = styled.button`
-width: 132px;
-height: 50px;
-font-size: 17px;
-background-color: #d7703f;
-outline: none;
-border: none;
-border-radius: 10px;
-color: #f7f6f1;
-position: absolute;
-top: 512px;
-margin-left: 170px;
-font-family: 'Cafe24Ssurround';
-padding-top: 3px;
-&:hover{
+  width: 132px;
+  height: 50px;
+  font-size: 17px;
+  background-color: #d7703f;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  color: #f7f6f1;
+  position: absolute;
+  top: 512px;
+  margin-left: 170px;
+  font-family: 'Cafe24Ssurround';
+  padding-top: 3px;
+  &:hover {
     cursor: pointer;
     outline: #d7703f solid 1.5px;
-}
-`
+  }
+`;

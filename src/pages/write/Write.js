@@ -22,6 +22,7 @@ import {
   WriteButton,
   TextArea,
   TextArea2,
+  MongleLogo
 } from './Write.styled';
 import {
   m_blue_OL,
@@ -53,7 +54,12 @@ const Write = () => {
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
   const userEmail = useSelector((state) => state.user.userEmail);
+  const navigate = useNavigate()
 
+
+  const backMain = () => {
+    navigate("/")
+  }
   const clickBlue = () => {
     setLink(m_blue);
     setLink_OL(m_blue_OL);
@@ -125,17 +131,20 @@ const Write = () => {
       user_nickName: nickName,
     };
     dispatch(addEmotionThunk(newWrite));
+    navigate("/")
   };
 
   return (
+  <>
+    <MongleLogo/>
     <WriteBox
       onSubmit={(e) => {
         e.preventDefault();
       }}
     >
       <WriteHeader>
-        <ArrowArea>
-          <ArrowBack />
+        <ArrowArea onClick={backMain}>
+          <ArrowBack onClick={backMain}/>
         </ArrowArea>
       </WriteHeader>
       <MongleArea>
@@ -201,6 +210,7 @@ const Write = () => {
       ></ContentArea>
       <WriteButton onClick={combineWrite}>작성하기</WriteButton>
     </WriteBox>
+    </>
   );
 };
 export default Write;
