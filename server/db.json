@@ -1,16 +1,5 @@
 {
-  "emotions": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
+  "emotion": [],
   "users": [
     {
       "email": "cosmos195@naver.com",
@@ -19,28 +8,15 @@
       "id": 1
     },
     {
-      "email": "tjdvlftkd@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4131-4747",
       "id": 2
     },
     {
-      "email": "tjdvlftkd22@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-113-4757",
+      "title": "123",
+      "content": "123",
+      "nickName": "123",
+      "password": "123",
+      "emotion_createDate": ["2022", "8", "9"],
       "id": 3
-    },
-    {
-      "email": "tjdvlftkd@nvae.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4113-4748",
-      "id": 4
-    },
-    {
-      "email": "cosmos1195@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4113-4748",
-      "id": 5
     }
   ]
 }
