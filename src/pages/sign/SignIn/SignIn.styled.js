@@ -7,7 +7,7 @@ export const SignInBox = styled.form`
   height: 620px;
   position: relative;
   box-sizing: border-box;
-  background: rgba(255, 255, 255);
+  background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
   border: 9px solid #d7703f;
@@ -20,25 +20,31 @@ export const SignInHeader = styled.div`
   height: 10%;
 `;
 export const SignInTitle = styled.div`
-  font-family: 'Cafe24SsurroundAir';
+  font-family: 'Cafe24Ssurround';
   text-align: center;
   position: absolute;
   width: 100%;
-  top: 100px;
+  top: 153px;
   font-size: 50px;
   font-weight: bolder;
 `;
 export const SignInDescript = styled.div`
-  font-family: 'Cafe24Ssurround';
+  font-family: 'Cafe24SsurroundAir';
   width: 100%;
-  font-size: 20px;
+  font-size: 18px;
   text-align: center;
   position: absolute;
-  top: 180px;
+  top: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+`;
+export const SignInDescriptSpan = styled.span`
+  width: 100%;
 `;
 export const SignInFormGroup = styled.div`
   position: absolute;
-  top: 300px;
+  top: 318px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -48,16 +54,18 @@ export const SignInFormGroup = styled.div`
 export const SignInInputGroup = styled.div`
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
   gap: 10px;
   width: 60%;
 `;
 export const SignInInput = styled.input`
-  width: 95%;
-  height: 50px;
+  background-color: #f7f6f1;
+  width: 91%;
+  height: 40px;
   border: 2px solid #d7703f;
   border-radius: 10px;
   font-size: 14px;
-  padding: 5px;
+  padding-left: 20px;
   color: black;
   ::placeholder {
     font-family: 'Cafe24Ssurround';
@@ -65,12 +73,12 @@ export const SignInInput = styled.input`
   }
 `;
 export const SignInButtonGroup = styled.div`
+  margin-top: 15px;
   width: 100%;
-  top: 470px;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 30px;
+  gap: 15px;
 `;
 export const SignInButton = styled.button`
   font-family: 'Cafe24Ssurround';
@@ -78,7 +86,7 @@ export const SignInButton = styled.button`
   border-radius: 10px;
   border: none;
   color: #f7f6f1;
-  width: 125px;
+  width: 132px;
   height: 50px;
   font-size: 17px;
 `;
@@ -91,7 +99,7 @@ export const SignInFooter = styled.div`
   height: 50px;
   background-image: url(${Mongles});
   background-size: cover;
-`
+`;
 export const AlertSpan = styled.span`
   display: none;
   font-size: 12px;
