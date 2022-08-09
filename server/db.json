@@ -1,71 +1,34 @@
 {
-  "emotions": [
-    {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "id": 2,
-      "title": "json-server",
-      "author": "typicode"
-    }
-  ],
-  "users": [
-    {
-      "email": "cosmos195@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4113-4748",
-      "id": 1
-    },
-    {
-      "email": "tjdvlftkd@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4131-4747",
-      "id": 2
-    },
-    {
-      "email": "tjdvlftkd22@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-113-4757",
-      "id": 3
-    },
-    {
-      "email": "tjdvlftkd@nvae.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4113-4748",
-      "id": 4
-    },
-    {
-      "email": "cosmos1195@naver.com",
-      "password": "Zerobeauty159!",
-      "phone": "010-4113-4748",
-      "id": 5
-    },
-    {
-      "title": "",
-      "id": 6
-    },
-    {
-      "title": "",
-      "id": 7
-    },
-    {
-      "title": "asdfad",
-      "id": 8
-    },
-    {
-      "title": "asdfad",
-      "id": 9
-    },
-    {
-      "title": "asdfad",
-      "id": 10
-    },
-    {
-      "title": "asdfad",
-      "id": 11
-    }
-  ],
-  "detail": []
+	"emotion": [],
+	"users": [
+		{
+			"email": "tjdvlftkd@nvae.com",
+			"password": "Zerobeauty159!",
+			"phone": "010-4113-4748",
+			"id": 4
+		},
+		{
+			"email": "cosmos1195@naver.com",
+			"password": "Zerobeauty159!",
+			"phone": "010-4113-4748",
+			"id": 5
+		},
+		{
+			"email": "rladmsgP@naver.com",
+			"password": "rladmsgP12#$",
+			"phone": "010-1111-2222",
+			"id": 6
+		},
+		{
+			"email": "rladmsgP@naver.comm",
+			"password": "Zerobeauty159!",
+			"phone": "010-3113-4444",
+			"id": 7
+		}
+	],
+	"detail": [
+		{
+			"title": "gg"
+		}
+	]
 }

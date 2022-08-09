@@ -6,13 +6,21 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { getUserThunk, signInAction } from '../../../redux/modules/user';
 
+// Component import
+import Circle from '../../../components/Circle/Circle';
+
 // CSS import
 import {
   SignInBox,
+  SignInHeader,
+  SignInTitle,
+  SignInDescript,
+  SignInFormGroup,
   SignInInputGroup,
   SignInInput,
   SignInButtonGroup,
   SignInButton,
+  SignInFooter,
   AlertSpan,
 } from './SignIn.styled';
 
@@ -53,6 +61,7 @@ const SignIn = () => {
               navigate('/');
             } else {
               alertEmailSpanRef.current.style.display = 'none';
+              alertPasswordSpanRef.current.style.display = 'block';
               alertPasswordSpanRef.current.innerText =
                 '패스워드가 일치하지 않습니다.';
             }
@@ -64,30 +73,42 @@ const SignIn = () => {
 
   return (
     <SignInBox onSubmit={(event) => signInAccount(event)}>
-      <SignInInputGroup>
-        <SignInInput
-          type="text"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          placeholder="E-mail"
-          ref={emailRef}
-        />
-        <AlertSpan ref={alertEmailSpanRef}></AlertSpan>
-        <SignInInput
-          type="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          placeholder="Password"
-          ref={passwordRef}
-        />
-        <AlertSpan ref={alertPasswordSpanRef}></AlertSpan>
-      </SignInInputGroup>
-      <SignInButtonGroup>
-        <SignInButton type="submit">로그인</SignInButton>
-        <SignInButton onClick={() => navigate('/signup')}>
-          회원가입
-        </SignInButton>
-      </SignInButtonGroup>
+      <SignInHeader>
+        <Circle />
+      </SignInHeader>
+      <SignInTitle>SIGN IN</SignInTitle>
+      <SignInDescript>
+        오늘도 몽글러들과 함께
+        <br />
+        하루를 나눠볼까요?
+      </SignInDescript>
+      <SignInFormGroup>
+        <SignInInputGroup>
+          <SignInInput
+            type="text"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="E-mail"
+            ref={emailRef}
+          />
+          <AlertSpan ref={alertEmailSpanRef}></AlertSpan>
+          <SignInInput
+            type="password"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            placeholder="Password"
+            ref={passwordRef}
+          />
+          <AlertSpan ref={alertPasswordSpanRef}></AlertSpan>
+        </SignInInputGroup>
+        <SignInButtonGroup>
+          <SignInButton type="submit">로그인</SignInButton>
+          <SignInButton onClick={() => navigate('/signup')}>
+            회원가입
+          </SignInButton>
+        </SignInButtonGroup>
+      </SignInFormGroup>
+      <SignInFooter />
     </SignInBox>
   );
 };

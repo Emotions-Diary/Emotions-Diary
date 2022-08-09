@@ -7,7 +7,8 @@ export const emailDupCheckThunk = createAsyncThunk(
     let check = false;
     const resData = await axios
       .get('http://localhost:5001/users')
-      .then((res) => res.data);
+      .then((res) => res.data)
+      .catch((error) => console.log(error));
     resData.forEach((user) => {
       if (payload === user.email) check = true;
     });
@@ -18,6 +19,7 @@ export const emailDupCheckThunk = createAsyncThunk(
 export const addUserThunk = createAsyncThunk(
   'user/addUser',
   async (payload, thunkAPI) => {
+    
     const data = {
       email: payload.email,
       password: payload.password,
@@ -54,7 +56,7 @@ export const userSlice = createSlice({
     signInAction: (state, action) => {
       state.userEmail = action.payload.userEmail;
       state.loginStatus = action.payload.loginStatus;
-    }
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(addUserThunk.fulfilled, (state, { payload }) => {
@@ -62,6 +64,6 @@ export const userSlice = createSlice({
     });
   },
 });
- 
-export const {signInAction} = userSlice.actions;
+
+export const { signInAction } = userSlice.actions;
 export default userSlice.reducer;

@@ -1,15 +1,29 @@
+// React import
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import PasswordStrengthBar from 'react-password-strength-bar';
+
+// Redux import
 import { useDispatch } from 'react-redux';
 import { emailDupCheckThunk, addUserThunk } from '../../../redux/modules/user';
 
+// Component import
+import Circle from '../../../components/Circle/Circle';
+
+// Package import
+import PasswordStrengthBar from 'react-password-strength-bar';
+
+// CSS import
 import {
   SignUpBox,
+  SignInHeader,
+  SignInTitle,
+  SignInDescript,
+  SignInFormGroup,
   SignUpInputGroup,
   SignUpInput,
   SignUpButtonGroup,
   SignUpButton,
+  SignUpFooter,
   AlertSpan,
   EmailGroup,
   EmailInput,
@@ -107,69 +121,81 @@ function SignUp() {
 
   return (
     <SignUpBox onSubmit={(event) => signUpAccount(event)}>
-      <SignUpInputGroup>
-        <EmailGroup>
-          <EmailInput
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            placeholder="E-mail"
-            ref={emailRef}
+      <SignInHeader>
+        <Circle />
+      </SignInHeader>
+      <SignInTitle>SIGN UP</SignInTitle>
+      <SignInDescript>
+        몽글몽글해지는 순간
+        <br />
+        당신만의 하루를 담아보세요!
+      </SignInDescript>
+      <SignInFormGroup>
+        <SignUpInputGroup>
+          <EmailGroup>
+            <EmailInput
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              placeholder="E-mail"
+              ref={emailRef}
+              required
+            />
+            <EmailButton
+              type="button"
+              onClick={() => (dupCheck ? emailModify() : emailDupCheck())}
+              ref={emailButtonRef}
+            >
+              중복확인
+            </EmailButton>
+          </EmailGroup>
+          <AlertSpan ref={emailSpanRef}></AlertSpan>
+          <SignUpInput
+            type="password"
+            value={passwd}
+            onChange={(e) => setPasswd(e.target.value)}
+            placeholder="Password"
+            ref={passwdRef}
             required
           />
-          <EmailButton
-            type="button"
-            onClick={() => (dupCheck ? emailModify() : emailDupCheck())}
-            ref={emailButtonRef}
-          >
-            중복확인
-          </EmailButton>
-        </EmailGroup>
-        <AlertSpan ref={emailSpanRef}></AlertSpan>
-        <SignUpInput
-          type="password"
-          value={passwd}
-          onChange={(e) => setPasswd(e.target.value)}
-          placeholder="Password"
-          ref={passwdRef}
-          required
-        />
-        <PasswordStrengthBar
-          password={passwd}
-          style={{ display: passwd ? 'block' : 'none' }}
-          ref={strengthBarRef}
-        />
-        <AlertSpan ref={passwdSpanRef}>패스워드가 취약합니다!</AlertSpan>
-        <SignUpInput
-          type="password"
-          value={passwdRe}
-          onChange={(e) => setPasswdRe(e.target.value)}
-          placeholder="Re-enter password"
-          ref={passwdReRef}
-          required
-        />
-        <AlertSpan ref={passwdReSpanRef}>패스워드가 맞지 않습니다!</AlertSpan>
-        {/* 
+          <PasswordStrengthBar
+            password={passwd}
+            style={{ display: passwd ? 'block' : 'none' }}
+            ref={strengthBarRef}
+          />
+          <AlertSpan ref={passwdSpanRef}>패스워드가 취약합니다!</AlertSpan>
+          <SignUpInput
+            type="password"
+            value={passwdRe}
+            onChange={(e) => setPasswdRe(e.target.value)}
+            placeholder="Re-enter password"
+            ref={passwdReRef}
+            required
+          />
+          <AlertSpan ref={passwdReSpanRef}>패스워드가 맞지 않습니다!</AlertSpan>
+          {/* 
         사파리에서는 type="tel"만 지정해도 전화번호 형식으로 사용가능"
         하지만 다른 브라우저에서는 정규식 사용 필요
         */}
-        <SignUpInput
-          type="tel"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
-          minLength="9"
-          maxLength="13"
-          placeholder="Phone number (00*-000*-0000)"
-          pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
-          required
-        />
-      </SignUpInputGroup>
-      <SignUpButtonGroup>
-        <SignUpButton type="submit">회원가입</SignUpButton>
-        <SignUpButton type="button" onClick={() => navigate('/')}>
-          뒤로가기
-        </SignUpButton>
-      </SignUpButtonGroup>
+          <SignUpInput
+            type="tel"
+            value={phone}
+            onChange={(e) => setPhone(e.target.value)}
+            minLength="9"
+            maxLength="13"
+            placeholder="Phone number (00*-000*-0000)"
+            pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
+            required
+          />
+        </SignUpInputGroup>
+        <SignUpButtonGroup>
+          <SignUpButton type="submit">회원가입</SignUpButton>
+          <SignUpButton type="button" onClick={() => navigate('/')}>
+            뒤로가기
+          </SignUpButton>
+        </SignUpButtonGroup>
+      </SignInFormGroup>
+      <SignUpFooter />
     </SignUpBox>
   );
 }
