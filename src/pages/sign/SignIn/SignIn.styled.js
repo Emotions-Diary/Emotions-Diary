@@ -1,50 +1,104 @@
 import styled from 'styled-components';
+import Mongles from '../../../static/images/mongles/mongles_group.png';
+import '../../../static/fonts/fonts.css';
 
 export const SignInBox = styled.form`
-  width: 400px;
-  height: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  gap: 50px;
-  background: rgba(255, 255, 255, 0.3);
+  width: 485px;
+  height: 620px;
+  position: relative;
+  box-sizing: border-box;
+  background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  margin: 0 10px;
-  padding: 20px 0;
   border-radius: 20px;
+  border: 9px solid #d7703f;
+`;
+export const SignInHeader = styled.div`
+  position: absolute;
+  top: 0;
+  background-color: #d7703f;
+  width: 100%;
+  height: 10%;
+`;
+export const SignInTitle = styled.div`
+  font-family: 'Cafe24Ssurround';
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  top: 153px;
+  font-size: 50px;
+  font-weight: bolder;
+`;
+export const SignInDescript = styled.div`
+  font-family: 'Cafe24SsurroundAir';
+  width: 100%;
+  font-size: 18px;
+  text-align: center;
+  position: absolute;
+  top: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+`;
+export const SignInDescriptSpan = styled.span`
+  width: 100%;
+`;
+export const SignInFormGroup = styled.div`
+  position: absolute;
+  top: 318px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
 `;
 export const SignInInputGroup = styled.div`
   display: flex;
   flex-direction: column;
+  box-sizing: content-box;
   gap: 10px;
-  width: 80%;
+  width: 60%;
 `;
 export const SignInInput = styled.input`
-  width: 100%;
-  height: 50px;
+  background-color: #f7f6f1;
+  width: 91%;
+  height: 40px;
+  border: 2px solid #d7703f;
   border-radius: 10px;
-  border: none;
-  padding: 0px;
-  &::placeholder {
-    padding: 5px;
+  font-size: 14px;
+  padding-left: 20px;
+  color: black;
+  ::placeholder {
+    font-family: 'Cafe24Ssurround';
+    color: #9b9b9b;
   }
 `;
 export const SignInButtonGroup = styled.div`
+  margin-top: 15px;
+  width: 100%;
   display: flex;
-  gap: 30px;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
 `;
 export const SignInButton = styled.button`
-  background-color: #e8e8e8;
+  font-family: 'Cafe24Ssurround';
+  background-color: #d7703f;
   border-radius: 10px;
   border: none;
-  background-color: #768361;
-  color: white;
-  width: 100px;
-  height: 30px;
+  color: #f7f6f1;
+  width: 132px;
+  height: 50px;
+  font-size: 17px;
+`;
+export const SignInFooter = styled.div`
+  left: 50%;
+  transform: translateX(-50%);
+  position: absolute;
+  top: 580px;
+  width: 280px;
+  height: 50px;
+  background-image: url(${Mongles});
+  background-size: cover;
 `;
 export const AlertSpan = styled.span`
   display: none;

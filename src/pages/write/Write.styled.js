@@ -59,16 +59,36 @@ font-family: 'Cafe24Ssurround';
   border-top-width: 0px;
   border-bottom-width: 2.8px;
   /* border-radius: 2pt; */
+  /* padding-bottom: 1px; */
+  padding-left: 5px;
+  letter-spacing: 0.7px;
+  font-size: 10.5px;
+  &:focus {
+    outline: none;
+  }
+`;
+export const WriteInput2 = styled.input`
+/* font-family: 'Cafe24Ssurround'; */
+  border-color: #d7703f;
+  width: 120px;
+  margin-right: 23px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+  border-top-width: 0px;
+  border-bottom-width: 2.8px;
+  letter-spacing: 3px;
+  /* border-radius: 2pt; */
   padding-bottom: 1px;
-  font-size: 11px;
+  padding-left: 5px;
+  /* font-size: 11px; */
   &:focus {
     outline: none;
   }
 `;
 export const InputArea2 = styled.div`
-  font-size: 11px;
+  font-size: 12px;
   font-family: 'Cafe24Ssurround';
-  width: 40%;
+  width: 45%;
   height: 3%;
   position: absolute;
   top: 225px;
@@ -78,7 +98,7 @@ export const InputArea2 = styled.div`
   color: #d7703f;
 `;
 export const InputArea = styled.div`
-  font-size: 11px;
+  font-size: 12px;
   font-family: 'Cafe24Ssurround';
   width: 40%;
   height: 3%;
@@ -88,6 +108,15 @@ export const InputArea = styled.div`
   margin-left: 50px;
   color: #d7703f;
 `;
+export const TextArea = styled.div`
+padding-top: 5px;
+`
+export const TextArea2 = styled.div`
+padding-top: 5px;
+width: 80px;
+margin-right: 5px;
+
+`
 export const WriteMongle = styled.div`
   background-repeat: no-repeat;
   background-image: url(${(props) => props.emotion ? props.emotion : 'm_orange'});
@@ -99,6 +128,7 @@ export const WriteMongle = styled.div`
     background-image: url(${(props) => props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
   }
 `;
+
 export const MongleArea = styled.div`
   width: 100%;
   height: 100px;
@@ -109,20 +139,20 @@ export const MongleArea = styled.div`
 `;
 export const TitleArea = styled.textarea`
   width: 80%;
-  height: 20px;
+  height: 18px;
   outline: 2px solid #d7703f;
   position: absolute;
   top: 275px;
   border: none;
   border-radius: 10px;
   margin-left: 40px;
-  padding-top: 5px;
-  padding-left: 10px;
+  padding-top: 7px;
+  padding-left: 12px;
   overflow:hidden;
   resize: none;
 &::placeholder{
 font-family: 'Cafe24Ssurround';
-color: #9b9b9b;
+color: #bfbfbf;
 }`
 ;
 export const ContentArea = styled.textarea`
@@ -134,24 +164,27 @@ top: 315px;
 outline: 2px solid #d7703f;
 border: none;
 border-radius: 10px;
-padding-top: 5px;
-padding-left: 10px;
+padding-top: 10px;
+padding-left: 12px;
+line-height:19px;
 &::placeholder{
 font-family: 'Cafe24Ssurround';
-color: #9b9b9b;
+color: #bfbfbf;
 }`;
 export const WriteButton = styled.button`
-width: 120px;
-height: 60px;
-font-size: 20px;
+width: 132px;
+height: 50px;
+font-size: 17px;
 background-color: #d7703f;
 outline: none;
 border: none;
 border-radius: 10px;
 color: #f7f6f1;
 position: absolute;
-top: 500px;
+top: 512px;
 margin-left: 170px;
+font-family: 'Cafe24Ssurround';
+padding-top: 3px;
 &:hover{
     cursor: pointer;
     outline: #d7703f solid 1.5px;
