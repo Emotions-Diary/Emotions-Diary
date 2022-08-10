@@ -147,7 +147,6 @@ const Write = () => {
 
     if(!click) {
       alert('몽글이를 선택해주세요!');
-      return;
     } 
     else {
       dispatch(addEmotionThunk(newWrite));

@@ -43,7 +43,7 @@ export const ArrowArea = styled.div`
   height: 30px;
   border-radius: 15px;
   background-color: #f7f6f1;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-left: 20px;
   &:hover {
     cursor: pointer;
