@@ -196,4 +196,5 @@ export const WriteButton = styled.button`
     cursor: pointer;
     border: 2px solid white;
   }
+
 `;

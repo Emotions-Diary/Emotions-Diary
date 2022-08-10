@@ -212,7 +212,7 @@ const Write = () => {
           required
         ></TitleArea>
         <ContentArea
-          placeholder="오늘 하루 어땠나요?&#13;&#10;다른 몽글러들에게 추천 해주고 싶은 노래가 있나요?&#13;&#10;오늘 가장 행복했던 일은 무엇인가요?"
+          placeholder="오늘 하루는 어땠나요?&#13;&#10;다른 몽글러들에게 추천 해주고 싶은 노래가 있나요?&#13;&#10;오늘 가장 행복했던 일은 무엇인가요?"
           value={content}
           onChange={onChangeContent}
           required
