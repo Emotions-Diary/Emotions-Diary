@@ -1,6 +1,7 @@
 // React import
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useInput from '../../../hooks/useInput';
 
 // Redux import
 import { useDispatch } from 'react-redux';
@@ -9,7 +10,7 @@ import { getUserThunk, signInAction } from '../../../redux/modules/user';
 // Component import
 import Circle from '../../../components/circle/Circle';
 
-// CSS import
+// Style import
 import {
   SignInBox,
   SignInHeader,
@@ -26,8 +27,8 @@ import {
 } from './SignIn.styled';
 
 const SignIn = () => {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useInput('');
+  const [password, setPassword] = useInput('');
 
   const emailRef = useRef();
   const passwordRef = useRef();
@@ -87,7 +88,7 @@ const SignIn = () => {
           <SignInInput
             type="text"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={setEmail}
             placeholder="E-mail"
             ref={emailRef}
           />
@@ -95,7 +96,7 @@ const SignIn = () => {
           <SignInInput
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={setPassword}
             placeholder="Password"
             ref={passwordRef}
           />

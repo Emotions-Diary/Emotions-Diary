@@ -1,6 +1,7 @@
 // React import
 import { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useInput from '../../../hooks/useInput';
 
 // Redux import
 import { useDispatch } from 'react-redux';
@@ -12,7 +13,7 @@ import Circle from '../../../components/circle/Circle';
 // Package import
 import PasswordStrengthBar from 'react-password-strength-bar';
 
-// CSS import
+// Style import
 import {
   SignUpBox,
   SignInHeader,
@@ -32,11 +33,11 @@ import {
 } from './SignUp.styled';
 
 function SignUp() {
-  const [email, setEmail] = useState('');
+  const [email, setEmail] = useInput('');
   const [dupCheck, setDupCheck] = useState(false);
-  const [passwd, setPasswd] = useState('');
-  const [passwdRe, setPasswdRe] = useState('');
-  const [phone, setPhone] = useState('');
+  const [passwd, setPasswd] = useInput('');
+  const [passwdRe, setPasswdRe] = useInput('');
+  const [phone, setPhone] = useInput('');
 
   const emailRef = useRef();
   const emailSpanRef = useRef();
@@ -135,7 +136,7 @@ function SignUp() {
             <EmailInput
               type="email"
               value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              onChange={setEmail}
               placeholder="E-mail"
               ref={emailRef}
               required
@@ -152,7 +153,7 @@ function SignUp() {
           <SignUpInput
             type="password"
             value={passwd}
-            onChange={(e) => setPasswd(e.target.value)}
+            onChange={setPasswd}
             placeholder="Password"
             ref={passwdRef}
             required
@@ -166,7 +167,7 @@ function SignUp() {
           <SignUpInput
             type="password"
             value={passwdRe}
-            onChange={(e) => setPasswdRe(e.target.value)}
+            onChange={setPasswdRe}
             placeholder="Re-enter password"
             ref={passwdReRef}
             required
@@ -179,7 +180,7 @@ function SignUp() {
           <SignUpInput
             type="tel"
             value={phone}
-            onChange={(e) => setPhone(e.target.value)}
+            onChange={setPhone}
             minLength="9"
             maxLength="13"
             placeholder="Phone number"

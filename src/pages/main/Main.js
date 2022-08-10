@@ -14,7 +14,7 @@ import { useNavigate } from 'react-router-dom';
 import Circle from '../../components/circle/Circle';
 import Skeleton from '../../components/skeleton/Skeleton';
 
-// CSS import
+// Style import
 import {
   MongleLogo,
   MongleText,
