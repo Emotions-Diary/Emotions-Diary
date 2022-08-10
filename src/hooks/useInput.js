@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 
-const useInput = () => {
-  const [value, setValue] = useState('');
+const useInput = (initialState) => {
+  const [value, setValue] = useState(initialState);
 
   const handler = useCallback((e) => {
     setValue(e.target.value);

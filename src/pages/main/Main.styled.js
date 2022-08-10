@@ -11,6 +11,9 @@ export const MongleLogo = styled.div`
 	left: 50px;
 	width: 270px;
 	height: 100px;
+	&:hover {
+		cursor: pointer;
+	}
 `;
 export const MongleText = styled.div`
 	position: absolute;
@@ -43,12 +46,12 @@ export const MainBox = styled.div`
 	background-color: #f7f6f1;
 	box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 	border-radius: 20px;
-	border: 9px solid #d7703f;
+	border: 9px solid #e66a2f;
 `;
 export const MainBoxHeader = styled.div`
 	position: absolute;
 	top: 0;
-	background-color: #d7703f;
+	background-color: #e66a2f;
 	width: 100%;
 	height: 10%;
 `;
@@ -105,25 +108,13 @@ export const MainMongleBox = styled.div`
 	flex-wrap: wrap;
 	gap: 20px;
 	align-content: flex-start;
-	overflow: scroll;
+	overflow-y: scroll;
 	&::-webkit-scrollbar {
 		width: 10px;
 	}
 	&::-webkit-scrollbar-thumb {
-		background-color: #d7703f;
+		background-color: #e66a2f;
 		border-radius: 5px;
-	}
-`;
-export const MainMongle = styled.div`
-	background-repeat: no-repeat;
-	background-image: url(${(props) =>
-		props.emotion ? props.emotion : 'm_orange'});
-	background-size: contain;
-	width: 80px;
-	height: 70px;
-	&:hover {
-		background-image: url(${(props) =>
-			props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
 	}
 `;
 export const MainMongleAdd = styled.button`
@@ -131,17 +122,14 @@ export const MainMongleAdd = styled.button`
 	top: 500px;
 	left: 50%;
 	transform: translateX(-50px);
-	background-color: #d7703f;
+	background-color: #e66a2f;
 	font-size: 70px;
-	border-radius: 100px;
+	border-radius: 		100px;
 	width: 80px;
 	height: 80px;
 	border: none;
-	color: white;
+	color: #f2f7f1;
 	&:hover {
 		cursor: pointer;
-		border: 3px solid #d7703f;
-		background-color: white;
-		color: #d7703f;
 	}
 `;

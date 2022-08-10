@@ -25,7 +25,7 @@ function App() {
 			<Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
 			<Route
 				path="/detail/:id"
-				element={loginStatus ? <Detail /> : <SignIn />}
+				element={loginStatus ? <Detail /> : <Detail />}
 			/>
 			<Route path="*" element={<SignIn />} />
 		</Routes>

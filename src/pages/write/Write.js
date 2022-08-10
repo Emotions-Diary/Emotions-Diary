@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 
 // Redux import
+import { signInAction } from '../../redux/modules/user';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEmotionThunk } from '../../redux/modules/emotion';
 
@@ -14,6 +15,7 @@ import moment from 'moment';
 import {
   WriteBox,
   WriteHeader,
+  MainButton,
   ArrowBack,
   ArrowArea,
   WriteDescript,
@@ -144,10 +146,16 @@ const Write = () => {
       navigate('/');
     }
   };
-  console.log(process.env.REACT_APP_SECRET_ID);
+
+  const signOut = () => {
+    dispatch(signInAction({ userEmail: '', loginStatus: false }));
+    navigate('/');
+  };
+
   return (
     <>
-      <MongleLogo />
+      <MongleLogo onClick={() => navigate('/')} />
+      <MainButton onClick={() => signOut()}>LOGOUT</MainButton>
       <WriteBox onSubmit={(e) => combineWrite(e)}>
         <WriteHeader>
           <ArrowArea onClick={backMain}>

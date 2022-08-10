@@ -12,6 +12,25 @@ export const MongleLogo = styled.div`
   left: 50px;
   width: 270px;
   height: 100px;
+  &:hover {
+		cursor: pointer;
+	}
+`;
+export const MainButton = styled.button`
+	font-family: 'Cafe24Ssurround';
+	position: absolute;
+	top: 55px;
+	right: 55px;
+	width: 150px;
+	height: 65px;
+	border-radius: 10px;
+	background-color: black;
+	color: white;
+	font-size: 20px;
+	&:hover {
+		background-color: #f7f6f1;
+		color: black;
+	}
 `;
 export const WriteBox = styled.form`
   width: 485px;
@@ -106,13 +125,13 @@ export const InputArea = styled.div`
   width: 40%;
   height: 3%;
   position: absolute;
-  top: 225px;
+  top: 228px;
   display: flex;
   margin-left: 50px;
   color: #e66a2f;
 `;
 export const TextArea = styled.div`
-  padding-top: 5px;
+  padding-top: 2px;
 `;
 export const TextArea2 = styled.div`
   padding-top: 5px;
@@ -141,6 +160,7 @@ export const MongleArea = styled.div`
   top: 140px;
 `;
 export const TitleArea = styled.textarea`
+  font-family: 'Cafe24Ssurround';
   width: 80%;
   height: 18px;
   background: #f7f6f1;
@@ -160,6 +180,7 @@ export const TitleArea = styled.textarea`
   }
 `;
 export const ContentArea = styled.textarea`
+  font-family: 'Cafe24Ssurround';
   width: 80%;
   height: 160px;
   margin-left: 40px;

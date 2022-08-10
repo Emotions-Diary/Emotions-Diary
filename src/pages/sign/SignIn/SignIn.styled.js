@@ -10,12 +10,12 @@ export const SignInBox = styled.form`
   background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
-  border: 9px solid #d7703f;
+  border: 9px solid #e66a2f;
 `;
 export const SignInHeader = styled.div`
   position: absolute;
   top: 0;
-  background-color: #d7703f;
+  background-color: #e66a2f;
   width: 100%;
   height: 10%;
 `;
@@ -58,11 +58,28 @@ export const SignInInputGroup = styled.div`
   gap: 10px;
   width: 60%;
 `;
-export const SignInInput = styled.input`
+export const SignInInputEmail = styled.input`
+  font-family: 'Cafe24Ssurround';
   background-color: #f7f6f1;
   width: 91%;
   height: 40px;
-  border: 2px solid #d7703f;
+  border: 2px solid #e66a2f;
+  border-radius: 10px;
+  font-size: 14px;
+  padding-left: 20px;
+  color: black;
+  &:focus {
+    outline: none;
+  }
+  ::placeholder {
+    color: #9b9b9b;
+  }
+`;
+export const SignInInputPassword = styled.input`
+  background-color: #f7f6f1;
+  width: 91%;
+  height: 40px;
+  border: 2px solid #e66a2f;
   border-radius: 10px;
   font-size: 14px;
   padding-left: 20px;

@@ -1,174 +1,250 @@
 // React import
 import { useState, useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { addEmotionThunk } from '../../redux/modules/emotion';
-import PropTypes from 'prop-types';
+import useInput from '../../hooks/useInput';
+
+// Redux import
+import { signInAction } from '../../redux/modules/user';
+import { useDispatch, useSelector } from 'react-redux';
+import { patchEmotionThunk } from '../../redux/modules/emotion';
+import { addCommentThunk, getCommentThunk } from '../../redux/modules/comment';
+
+// Component import
+import Button from '../../elements/button/Button';
+import Comment from '../../components/comment/Comment';
+
+// Package import
+import { useNavigate, useParams } from 'react-router-dom';
+
+// Style import
 import {
-	WriteBox,
-	WriteHeader,
-	ArrowBack,
-	ArrowArea,
-	WriteMongle,
-	MongleArea,
-	TitleArea,
-	ContentArea,
-	UpdateButton,
-	UpdateButtonGroup,
-	CancelButton,
-	DetailNickname,
-	DetailDate,
-	DetailInputArea,
-	CommentGroup,
-	CommentNicknameInput,
-	CommentContentInput,
-	CommentAddButton,
+  MongleLogo,
+  MainButton,
+  DetailBox,
+  EmotionForm,
+  WriteHeader,
+  ArrowBack,
+  ArrowArea,
+  WriteMongle,
+  MongleArea,
+  TitleArea,
+  ContentArea,
+  UpdateButtonGroup,
+  UpdatePassword,
+  DetailNickname,
+  DetailDate,
+  DetailInputArea,
+  CommentForm,
+  CommentGroup,
+  CommentNicknameInput,
+  CommentContentInput,
+  CommentAddButton,
+  CommentTextGroup,
 } from './Detail.styled';
-import {
-	m_blue_OL,
-	m_blue,
-	m_green_OL,
-	m_green,
-	m_orange_OL,
-	m_orange,
-	m_pink_OL,
-	m_pink,
-	m_yellow_OL,
-	m_yellow,
-	mongle_logo,
-} from '../../static/images/images';
-// moment import
-import moment from 'moment';
 
 const Detail = () => {
-	const [writes, setwrites] = useState(null);
-	const [title, setTitle] = useState('');
-	const [content, setContent] = useState('');
-	const [nickName, setNickName] = useState('');
-	const [password, setPassword] = useState('');
-	const [link, setLink] = useState('');
-	const [link_OL, setLink_OL] = useState('');
-	const [createDate, setCreateDate] = useState([]);
-	const [email, setEmail] = useState('');
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const { id } = useParams();
 
-	const clickBlue = () => {
-		setLink(m_blue);
-		setLink_OL(m_blue_OL);
-		console.log(link, link_OL, createDate);
-	};
-	const clickGreen = () => {
-		setLink(m_green);
-		setLink_OL(m_green_OL);
-		console.log(link, link_OL);
-	};
-	const clickOrange = () => {
-		setLink(m_orange);
-		setLink_OL(m_orange_OL);
-		console.log(link, link_OL);
-	};
-	const clickPink = () => {
-		setLink(m_pink);
-		setLink_OL(m_pink_OL);
-		console.log(link, link_OL);
-	};
-	const clickYellow = () => {
-		setLink(m_yellow);
-		setLink_OL(m_yellow_OL);
-		console.log(link, link_OL);
-	};
-	// const [emo]
-	// const dispatch = useDispatch();
+  const emotions = useSelector((state) => state.emotion.emotion);
+  const emotion = emotions.filter((emotion) => emotion.id === parseInt(id));
 
-	// dispatch(addEmotionThunk(writes));
-	// dispatch(emotionActions.emotionAction(emotions))
-	// axios.post('http://localhost:5001/users', emotions);
-	// };
+  const comments = useSelector((state) => state.comment.comment);
+  const commentsReverse = [...comments].reverse();
 
-	const nowTime = moment()
-		.format('YYYY-MM-DD')
-		.split('-')
-		.map((item) => {
-			if (item[0] === '0') return item[1];
-			else return item;
-		});
+  const is_loaded = useSelector((state) => state.comment.is_loaded);
 
-	useEffect(() => {
-		setCreateDate(nowTime);
-	}, []);
+  const [modify, setModify] = useState(false);
+  const [title, setTitle] = useInput(emotion[0].emotion_title);
+  const [content, setContent] = useInput(emotion[0].emotion_content);
+  const [password, setPassword] = useInput('');
+  const [nickName, setNickName] = useInput('');
+  const [comment, setComment] = useInput('');
 
-	const [editMode, setEditMode] = useState(false);
-	const onClickButton = () => {
-		setEditMode(true);
-	};
-	const onSaveButton = () => {
-		setEditMode(false);
-	};
+  const titleRef = useRef();
+  const contentRef = useRef();
 
-	return (
-		<WriteBox>
-			<WriteHeader>
-				<ArrowArea>
-					<ArrowBack />
-				</ArrowArea>
-			</WriteHeader>
-			<DetailInputArea>
-				<DetailNickname> 성몽글 </DetailNickname>
-				<DetailDate>2022/08/16</DetailDate>
-			</DetailInputArea>
-			<MongleArea>
-				<WriteMongle
-					emotion={m_pink}
-					emotion_OL={m_pink_OL}
-					onClick={clickPink}
-				/>
-			</MongleArea>
-			<TitleArea>오늘은 한강 산책을 다녀왔어요</TitleArea>
-			<ContentArea placeholder="오늘은 날씨가 엄청 화창했습니다. 바람도 선선히 불고 적당했어요 :) kenny the king - lemonade를 들으며 산책 했는데 날씨와 딱 어울리는 노래였습니다. 다른 몽글러분들은 어떤 하루를 보내셨나요?"></ContentArea>
-			<UpdateButtonGroup>
-				{editMode ? (
-					<UpdateButton onClick={onSaveButton} type="button">
-						저장
-					</UpdateButton>
-				) : (
-					<UpdateButton onClick={onClickButton} type="button">
-						수정
-					</UpdateButton>
-				)}
+  const changeStatus = () => {
+    if(modify) {
+      titleRef.current.style.backgroundColor = '#e66a2f'
+      titleRef.current.style.color = '#f7f6f1';
+    }
+    else {
+      titleRef.current.style.backgroundColor = '#f7f6f1'
+      titleRef.current.style.color = '#000000';
+    }
+    titleRef.current.disabled = !titleRef.current.disabled;
+    contentRef.current.disabled = !contentRef.current.disabled;
+    setModify(!modify);
+  };
+  const emotionModify = (event) => {
+    event.preventDefault();
 
-				<CancelButton>취소</CancelButton>
-			</UpdateButtonGroup>
+    const newEmotionData = {
+      emotion_title: title,
+      emotion_content: content,
+    };
 
-			{/* <CommentInputGroup>
-				<CommentInputArea>
-					<CommentNicknameTextArea placeholder="제목"></CommentNicknameTextArea>{' '}
-					<WriteInput />
-				</CommentInputArea>{' '}
-				<CommentInputArea2>
-					<CommentContentTextArea placeholder="내용"></CommentContentTextArea>
-					<WriteInput2 />
-				</CommentInputArea2>
-				<AddCommentButton>등록</AddCommentButton>
-			</CommentInputGroup> */}
+    if (emotion[0].emotion_password !== password) {
+      alert('비밀번호가 일치하지 않습니다.');
+    } else {
+      dispatch(patchEmotionThunk({ id, newEmotionData }));
+      titleRef.current.disabled = true;
+      contentRef.current.disabled = true;
+      setModify(!modify);
+      navigate(`/detail/${id}`);
+    }
+  };
 
-			<CommentGroup>
-				<CommentNicknameInput
-					type="commentNickname"
-					placeholder="닉네임"
-					required
-				/>
-				<CommentContentInput
-					type="commentContent"
-					placeholder="내용을 입력하세요."
-					required
-				/>
-				<CommentAddButton type="button">등록</CommentAddButton>
-			</CommentGroup>
+  const commentHandle = (event) => {
+    event.preventDefault();
 
-			{/* <CommentGetNickname></CommentGetNickname>
-			<CommentGetComment></CommentGetComment> */}
-			
-		</WriteBox>
-	);
+    const newCommentData = {
+      emotion_id: parseInt(id),
+      comment_nickName: nickName,
+      comment_comment: comment,
+    };
+    dispatch(addCommentThunk(newCommentData));
+  };
+
+  const signOut = () => {
+    dispatch(signInAction({ userEmail: '', loginStatus: false }));
+    navigate('/');
+  };
+
+  useEffect(() => {
+    dispatch(getCommentThunk());
+  }, []);
+
+  return (
+    <>
+      <MongleLogo onClick={() => navigate('/')} />
+      <MainButton onClick={() => signOut()}>LOGOUT</MainButton>
+      <DetailBox>
+        <EmotionForm
+          name="emotionForm"
+          onSubmit={(event) => emotionModify(event)}
+        >
+          <WriteHeader>
+            <ArrowArea onClick={() => navigate('/')}>
+              <ArrowBack />
+            </ArrowArea>
+          </WriteHeader>
+          <DetailInputArea>
+            <DetailNickname>{emotion[0].user_nickName}</DetailNickname>
+            <DetailDate>
+              {emotion[0].emotion_createDate[0]}/
+              {emotion[0].emotion_createDate[1].padStart(2, '0')}/
+              {emotion[0].emotion_createDate[2]}
+            </DetailDate>
+          </DetailInputArea>
+          <MongleArea>
+            <WriteMongle emotion={emotion[0].emotion_link} />
+          </MongleArea>
+          <TitleArea
+            value={title}
+            onChange={setTitle}
+            ref={titleRef}
+            maxLength="18"
+            disabled
+          ></TitleArea>
+          <ContentArea
+            value={content}
+            onChange={setContent}
+            ref={contentRef}
+            disabled
+          >
+            {emotion[0].emotion_content}
+          </ContentArea>
+          <UpdateButtonGroup>
+            {modify ? (
+              <>
+                <UpdatePassword
+                  type="password"
+                  value={password}
+                  onChange={setPassword}
+                  required
+                />
+                <Button
+                  type={'submit'}
+                  styled={{
+                    width: '70px',
+                    height: '30px',
+                    ft_size: '11px',
+                  }}
+                  text={'저장'}
+                />
+                <Button
+                  type={'submit'}
+                  onClick={changeStatus}
+                  styled={{
+                    width: '70px',
+                    height: '30px',
+                    ft_size: '11px',
+                    bg_color: '#cecece',
+                  }}
+                  text={'취소'}
+                />
+              </>
+            ) : (
+              <Button
+                type={'button'}
+                onClick={changeStatus}
+                styled={{
+                  width: '70px',
+                  height: '30px',
+                  ft_size: '11px',
+                }}
+                text={'수정'}
+              />
+            )}
+          </UpdateButtonGroup>
+        </EmotionForm>
+        <CommentForm
+          name="commentForm"
+          onSubmit={(event) => commentHandle(event)}
+        >
+          <CommentGroup>
+            <CommentNicknameInput
+              type="text"
+              value={nickName}
+              onChange={setNickName}
+              placeholder="닉네임"
+              maxLength={4}
+              minLength={2}
+              required
+            />
+            <CommentContentInput
+              type="text"
+              value={comment}
+              onChange={setComment}
+              placeholder="내용을 입력하세요."
+              required
+            />
+            <CommentAddButton type="submit">등록</CommentAddButton>
+          </CommentGroup>
+          <CommentTextGroup>
+            {is_loaded ? (
+              <div>로딩중</div>
+            ) : (
+              commentsReverse.map((com) => {
+                if (parseInt(id) === com.emotion_id) {
+                  return (
+                    <Comment
+                      key={com.id}
+                      id={com.id}
+                      nickName={com.comment_nickName}
+                      comment={com.comment_comment}
+                    />
+                  );
+                }
+              })
+            )}
+          </CommentTextGroup>
+        </CommentForm>
+      </DetailBox>
+    </>
+  );
 };
 
 export default Detail;

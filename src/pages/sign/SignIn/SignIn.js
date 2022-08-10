@@ -20,7 +20,8 @@ import {
 	SignInDescriptSpan,
 	SignInFormGroup,
 	SignInInputGroup,
-	SignInInput,
+	SignInInputEmail,
+	SignInInputPassword,
 	SignInButtonGroup,
 	SignInFooter,
 	AlertSpan,
@@ -85,7 +86,7 @@ const SignIn = () => {
 			</SignInDescript>
 			<SignInFormGroup>
 				<SignInInputGroup>
-					<SignInInput
+					<SignInInputEmail
 						type="text"
 						value={email}
 						onChange={setEmail}
@@ -93,7 +94,7 @@ const SignIn = () => {
 						ref={emailRef}
 					/>
 					<AlertSpan ref={alertEmailSpanRef}></AlertSpan>
-					<SignInInput
+					<SignInInputPassword
 						type="password"
 						value={password}
 						onChange={setPassword}

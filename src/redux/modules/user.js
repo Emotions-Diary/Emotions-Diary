@@ -19,14 +19,14 @@ export const emailDupCheckThunk = createAsyncThunk(
 export const addUserThunk = createAsyncThunk(
 	'user/addUser',
 	async (payload, thunkAPI) => {
-		const data = {
-			email: payload.email,
-			password: payload.password,
-			phone: payload.phone,
-		};
+		// const data = {
+		// 	email: payload.email,
+		// 	password: payload.password,
+		// 	phone: payload.phone,
+		// };
 
 		const resData = await axios
-			.post('http://localhost:5001/user', data)
+			.post('http://localhost:5001/user', payload)
 			.then((res) => res.data);
 		return thunkAPI.fulfillWithValue(resData);
 	}

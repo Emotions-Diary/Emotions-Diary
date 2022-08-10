@@ -11,7 +11,7 @@ export const SignUpBox = styled.form`
   background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
-  border: 9px solid #d7703f;
+  border: 9px solid #e66a2f;
 `;
 export const SignInHeader = styled.div`
   position: absolute;
@@ -72,11 +72,11 @@ export const EmailInput = styled.input`
   border-radius: 10px 0 0 10px;
   font-size: 14px;
   padding-left: 20px;
+  font-family: 'Cafe24Ssurround';
   &:focus {
     outline: none;
   }
   ::placeholder {
-    font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
   }
 `;
@@ -89,11 +89,14 @@ export const EmailButton = styled.button`
   border: none;
   color: #f7f6f1;
   font-size: 14px;
+  &:focus {
+    outline: none;
+  }
   &:hover {
     cursor: pointer;
   }
 `;
-export const SignUpInput = styled.input`
+export const SignUpInputPassword = styled.input`
   background-color: #f7f6f1;
   width: 91%;
   height: 35px;
@@ -106,6 +109,22 @@ export const SignUpInput = styled.input`
   }
   ::placeholder {
     font-family: 'Cafe24Ssurround';
+    color: #9b9b9b;
+  }
+`;
+export const SignUpInputPhone = styled.input`
+  font-family: 'Cafe24Ssurround';
+  background-color: #f7f6f1;
+  width: 91%;
+  height: 35px;
+  border-radius: 10px;
+  border: 2px solid #e66a2f;
+  font-size: 14px;
+  padding-left: 20px;
+  &:focus {
+    outline: none;
+  }
+  ::placeholder {
     color: #9b9b9b;
   }
 `;
