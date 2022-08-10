@@ -145,12 +145,11 @@ const Write = () => {
       user_nickName: nickName,
     };
 
-    if(!click) {
+    if (!click) {
       alert('몽글이를 선택해주세요!');
-    } 
-    else {
+    } else {
       dispatch(addEmotionThunk(newWrite));
-    navigate('/');
+      navigate('/');
     }
   };
 
