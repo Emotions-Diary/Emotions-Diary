@@ -209,6 +209,7 @@ const Write = () => {
           placeholder="제목"
           value={title}
           onChange={onChangeTitle}
+          maxLength={18}
           required
         ></TitleArea>
         <ContentArea

@@ -33,6 +33,7 @@ export const MainButton = styled.button`
   color: white;
   font-size: 20px;
   &:hover {
+    cursor: pointer;
     background-color: #f7f6f1;
     color: black;
   }
@@ -45,12 +46,12 @@ export const MainBox = styled.div`
   background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
-  border: 9px solid #d7703f;
+  border: 9px solid #e66a2f;
 `;
 export const MainBoxHeader = styled.div`
   position: absolute;
   top: 0;
-  background-color: #d7703f;
+  background-color: #e66a2f;
   width: 100%;
   height: 10%;
 `;
@@ -112,7 +113,7 @@ export const MainMongleBox = styled.div`
     width: 10px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #d7703f;
+    background-color: #e66a2f;
     border-radius: 5px;
   }
 `;
@@ -124,6 +125,7 @@ export const MainMongle = styled.div`
   height: 70px;
   &:hover {
     background-image: url(${(props) => props.emotion_OL ? props.emotion_OL : 'm_orange_OL'});
+    cursor: pointer;
   }
 `;
 export const MainMongleAdd = styled.button`
@@ -131,7 +133,7 @@ export const MainMongleAdd = styled.button`
   top: 500px;
   left: 50%;
   transform: translateX(-50px);
-  background-color: #d7703f;
+  background-color: #e66a2f;
   font-size: 70px;
   border-radius: 100px;
   width: 80px;
@@ -140,8 +142,8 @@ export const MainMongleAdd = styled.button`
   color: white;
   &:hover {
     cursor: pointer;
-    border: 3px solid #d7703f;
+    border: 3px solid #e66a2f;
     background-color: white;
-    color: #d7703f;
+    color: #e66a2f;
   }
 `;

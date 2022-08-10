@@ -11,6 +11,9 @@ export const StyledButton = styled.button`
   height: ${(props) => (props.height ? props.height : '50px')};
   font-size: ${(props) => (props.ft_size ? props.ft_size : '17px')};
   padding: ${(props) => (props.pd ? props.pd : '0')};
+  &:focus {
+    outline: none;
+  }
   &:hover {
     border: 2px solid #f7f6f1;
     cursor: pointer;
