@@ -35,7 +35,6 @@ import {
   m_pink,
   m_yellow_OL,
   m_yellow,
-  mongle_logo,
 } from '../../static/images/images';
 // moment import
 import moment from 'moment';

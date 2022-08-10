@@ -1,7 +1,10 @@
 import styled from 'styled-components';
 import '../../static/fonts/fonts.css';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
+<<<<<<< HEAD
+=======
 import { mongle_logo } from '../../static/images/images';
+>>>>>>> 3376c5d48b3ed6ec87da0a135c570983a9692aa2
 
 export const MongleLogo = styled.div`
   position: absolute;
