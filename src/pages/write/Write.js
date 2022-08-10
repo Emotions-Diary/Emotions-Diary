@@ -41,7 +41,6 @@ import {
 import moment from 'moment';
 
 const Write = () => {
-  // const [title, setTitle] = useState('');
   const [title, onChangeTitle] = useText('');
   const [content, onChangeContent] = useText('');
   const [nickName, onChangeNickName] = useText('');
@@ -54,7 +53,6 @@ const Write = () => {
   const [greenState, setGreenState] = useState(true);
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
-  const [colorState, setColorState] = useState([]);
   const userEmail = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
 
