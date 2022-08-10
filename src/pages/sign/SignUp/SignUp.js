@@ -9,6 +9,7 @@ import { emailDupCheckThunk, addUserThunk } from '../../../redux/modules/user';
 
 // Component import
 import Circle from '../../../components/circle/Circle';
+import Button from '../../../elements/button/Button';
 
 // Package import
 import PasswordStrengthBar from 'react-password-strength-bar';
@@ -24,7 +25,6 @@ import {
   SignUpInputGroup,
   SignUpInput,
   SignUpButtonGroup,
-  SignUpButton,
   SignUpFooter,
   AlertSpan,
   EmailGroup,
@@ -189,10 +189,29 @@ function SignUp() {
           />
         </SignUpInputGroup>
         <SignUpButtonGroup>
-          <SignUpButton type="submit">회원가입</SignUpButton>
+          {/* <SignUpButton type="submit">회원가입</SignUpButton>
           <SignUpButton type="button" onClick={() => navigate('/')}>
             뒤로가기
-          </SignUpButton>
+          </SignUpButton> */}
+          <Button
+            type={'submit'}
+            styled={{
+              width: '132px',
+              height: '50px',
+              ft_size: '17px',
+            }}
+            text={'회원가입'}
+          />
+          <Button
+            type={'button'}
+            onClick={() => navigate('/')}
+            styled={{
+              width: '132px',
+              height: '50px',
+              ft_size: '17px',
+            }}
+            text={'로그인'}
+          />
         </SignUpButtonGroup>
       </SignInFormGroup>
       <SignUpFooter />

@@ -9,6 +9,7 @@ import { getUserThunk, signInAction } from '../../../redux/modules/user';
 
 // Component import
 import Circle from '../../../components/circle/Circle';
+import Button from '../../../elements/button/Button';
 
 // Style import
 import {
@@ -21,7 +22,6 @@ import {
   SignInInputGroup,
   SignInInput,
   SignInButtonGroup,
-  SignInButton,
   SignInFooter,
   AlertSpan,
 } from './SignIn.styled';
@@ -103,10 +103,29 @@ const SignIn = () => {
           <AlertSpan ref={alertPasswordSpanRef}></AlertSpan>
         </SignInInputGroup>
         <SignInButtonGroup>
-          <SignInButton type="submit">로그인</SignInButton>
+          {/* <SignInButton type="submit">로그인</SignInButton>
           <SignInButton onClick={() => navigate('/signup')}>
             회원가입
-          </SignInButton>
+          </SignInButton> */}
+          <Button
+            type={'submit'}
+            styled={{
+              width: '132px',
+              height: '50px',
+              ft_size: '17px',
+            }}
+            text={'로그인'}
+          />
+          <Button
+            type={'button'}
+            onClick={() => navigate('/signup')}
+            styled={{
+              width: '132px',
+              height: '50px',
+              ft_size: '17px',
+            }}
+            text={'회원가입'}
+          />
         </SignInButtonGroup>
       </SignInFormGroup>
       <SignInFooter />

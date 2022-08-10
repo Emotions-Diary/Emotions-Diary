@@ -105,16 +105,16 @@ export const SignUpButtonGroup = styled.div`
   display: flex;
   gap: 15px;
 `;
-export const SignUpButton = styled.button`
-  font-family: 'Cafe24Ssurround';
-  background-color: #e66a2f;
-  border-radius: 10px;
-  border: none;
-  color: #f7f6f1;
-  width: 132px;
-  height: 50px;
-  font-size: 17px;
-`;
+// export const SignUpButton = styled.button`
+//   font-family: 'Cafe24Ssurround';
+//   background-color: #e66a2f;
+//   border-radius: 10px;
+//   border: none;
+//   color: #f7f6f1;
+//   width: 132px;
+//   height: 50px;
+//   font-size: 17px;
+// `;
 export const SignUpFooter = styled.div`
   left: 50%;
   transform: translateX(-50%);
