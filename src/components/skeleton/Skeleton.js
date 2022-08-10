@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import { SkeletonItem } from './Skeleton.styled';
 
 const Skeleton = () => {
   return (
@@ -31,13 +31,7 @@ const Skeleton = () => {
       <SkeletonItem />
       <SkeletonItem />
     </>
-  )
-}
+  );
+};
 
 export default Skeleton;
-
-export const SkeletonItem = styled.div`
-  background-color: grey;
-  width: 80px;
-  height: 70px;
-`

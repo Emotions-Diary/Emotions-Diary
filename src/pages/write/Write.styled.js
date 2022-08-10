@@ -1,9 +1,6 @@
 import styled from 'styled-components';
-import Mongles from '../../static/images/mongles/mongles_group.png';
 import '../../static/fonts/fonts.css';
 import { MdOutlineArrowBackIosNew } from 'react-icons/md';
-import { hover } from '@testing-library/user-event/dist/hover';
-import { findByPlaceholderText } from '@testing-library/react';
 
 export const WriteBox = styled.form`
   width: 485px;
