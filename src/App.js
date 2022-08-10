@@ -43,7 +43,7 @@ function App() {
 				element={loginStatus ? <Main /> : <SignIn />}
 			/>
 			<Route path="/signup" element={<SignUp />} />
-			<Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
+			<Route path="/write" element={loginStatus ? <Write /> : <Write />} />
 			<Route path="/detail" element={loginStatus ? <Detail /> : <Detail />} />
 		</Routes>
 	);
