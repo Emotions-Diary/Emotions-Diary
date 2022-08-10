@@ -29,6 +29,9 @@ import {
   TextArea,
   TextArea2,
   MongleLogo,
+  WriteButtonArea,
+  WriteInputArea,
+  WriteInputArea2,
 } from './Write.styled';
 
 // Image import
@@ -52,13 +55,11 @@ const Write = () => {
   const [password, onChangePassword] = useInput('');
   const [link, setLink] = useState('');
   const [link_OL, setLink_OL] = useState('');
-  const [createDate, setCreateDate] = useState([]);
   const [orangeState, setOrangeState] = useState(true);
   const [blueState, setBlueState] = useState(true);
   const [greenState, setGreenState] = useState(true);
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
-  const [click, setClick] = useState(false);
   const userEmail = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
 
@@ -74,7 +75,6 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
-    setClick(!click);
   };
   const clickGreen = () => {
     setLink(m_green);
@@ -84,7 +84,6 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
-    setClick(!click);
   };
   const clickOrange = () => {
     setLink(m_orange);
@@ -94,7 +93,6 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setGreenState(true);
-    setClick(!click);
   };
   const clickPink = () => {
     setLink(m_pink);
@@ -104,7 +102,6 @@ const Write = () => {
     setGreenState(true);
     setYellowState(true);
     setOrangeState(true);
-    setClick(!click);
   };
   const clickYellow = () => {
     setLink(m_yellow);
@@ -114,7 +111,6 @@ const Write = () => {
     setOrangeState(true);
     setPinkState(true);
     setGreenState(true);
-    setClick(!click);
   };
 
   const dispatch = useDispatch();
@@ -127,10 +123,6 @@ const Write = () => {
       else return item;
     });
 
-  useEffect(() => {
-    setCreateDate(nowTime);
-  }, []);
-
   const combineWrite = (e) => {
     e.preventDefault();
 
@@ -140,19 +132,21 @@ const Write = () => {
       emotion_link: link,
       emotion_link_OL: link_OL,
       emotion_password: password,
-      emotion_createDate: createDate,
+      emotion_createDate: nowTime,
       user_email: userEmail,
       user_nickName: nickName,
     };
 
-    if (!click) {
+    if (link === '') {
       alert('몽글이를 선택해주세요!');
+    } else if (nickName.length > 4 || nickName.length < 2) {
+      alert('2~4글자 사이의 닉네임을 입력해주세요!');
     } else {
       dispatch(addEmotionThunk(newWrite));
       navigate('/');
     }
   };
-
+  console.log(process.env.REACT_APP_SECRET_ID);
   return (
     <>
       <MongleLogo />
@@ -192,16 +186,20 @@ const Write = () => {
         <WriteDescript>오늘 몽글러의 기분은?</WriteDescript>
         <InputArea>
           <TextArea> 닉네임 :</TextArea>{' '}
-          <WriteInput value={nickName} onChange={onChangeNickName} required />
+          <WriteInputArea>
+            <WriteInput value={nickName} onChange={onChangeNickName} required />
+          </WriteInputArea>
         </InputArea>
         <InputArea2>
           <TextArea2> 비밀번호 :</TextArea2>
-          <WriteInput2
-            type="password"
-            value={password}
-            onChange={onChangePassword}
-            required
-          />
+          <WriteInputArea2>
+            <WriteInput2
+              type="password"
+              value={password}
+              onChange={onChangePassword}
+              required
+            />
+          </WriteInputArea2>
         </InputArea2>
         <TitleArea
           placeholder="제목"
@@ -215,7 +213,9 @@ const Write = () => {
           onChange={onChangeContent}
           required
         ></ContentArea>
-        <WriteButton type="submit">작성하기</WriteButton>
+        <WriteButtonArea>
+          <WriteButton type="submit">작성하기</WriteButton>
+        </WriteButtonArea>
       </WriteBox>
     </>
   );

@@ -18,7 +18,7 @@ export const WriteBox = styled.form`
   height: 620px;
   position: relative;
   box-sizing: border-box;
-  background: rgba(255, 255, 255);
+  background: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
   border: 9px solid #e66a2f;
@@ -60,14 +60,9 @@ export const WriteDescript = styled.div`
 export const WriteInput = styled.input`
   font-family: 'Cafe24Ssurround';
   border-color: #e66a2f;
+  background: #f7f6f1;
   width: 100px;
-  margin-left: 10px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 2.8px;
-  /* border-radius: 2pt; */
-  /* padding-bottom: 1px; */
+  border-width: 0px 0px 2.8px 0px;
   padding-left: 5px;
   letter-spacing: 0.7px;
   font-size: 10.5px;
@@ -75,23 +70,23 @@ export const WriteInput = styled.input`
     outline: none;
   }
 `;
+export const WriteInputArea = styled.div`
+  margin: 0px 0px 0px 10px;
+`;
 export const WriteInput2 = styled.input`
-  /* font-family: 'Cafe24Ssurround'; */
   border-color: #e66a2f;
+  background: #f7f6f1;
   width: 120px;
-  margin-right: 23px;
-  border-left-width: 0px;
-  border-right-width: 0px;
-  border-top-width: 0px;
-  border-bottom-width: 2.8px;
+  border-width: 0px 0px 2.8px 0px;
   letter-spacing: 3px;
-  /* border-radius: 2pt; */
   padding-bottom: 1px;
   padding-left: 5px;
-  /* font-size: 11px; */
   &:focus {
     outline: none;
   }
+`;
+export const WriteInputArea2 = styled.div`
+  margin: 0px 23px 0px 0px;
 `;
 export const InputArea2 = styled.div`
   font-size: 12px;
@@ -147,6 +142,7 @@ export const MongleArea = styled.div`
 export const TitleArea = styled.textarea`
   width: 80%;
   height: 18px;
+  background: #f7f6f1;
   outline: 2px solid #e66a2f;
   position: absolute;
   top: 275px;
@@ -171,6 +167,7 @@ export const ContentArea = styled.textarea`
   outline: 2px solid #e66a2f;
   border: none;
   border-radius: 10px;
+  background: #f7f6f1;
   padding-top: 10px;
   padding-left: 12px;
   line-height: 19px;
@@ -179,22 +176,23 @@ export const ContentArea = styled.textarea`
     color: #bfbfbf;
   }
 `;
+export const WriteButtonArea = styled.div`
+  position: absolute;
+  top: 512px;
+  margin-left: 170px;
+`;
 export const WriteButton = styled.button`
   width: 132px;
   height: 50px;
   font-size: 17px;
   background-color: #e66a2f;
-  outline: none;
   border: none;
   border-radius: 10px;
   color: #f7f6f1;
-  position: absolute;
-  top: 512px;
-  margin-left: 170px;
   font-family: 'Cafe24Ssurround';
   padding-top: 3px;
   &:hover {
     cursor: pointer;
-    outline: #e66a2f solid 1.5px;
+    border: 2px solid white;
   }
 `;

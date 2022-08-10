@@ -1,11 +1,4 @@
 {
   "emotion": [],
-  "user": [
-    {
-      "email": "nanaheui000@naver.com",
-      "password": "gh123123!",
-      "phone": "010-9399-4607",
-      "id": 1
-    }
-  ]
+  "user": []
 }
