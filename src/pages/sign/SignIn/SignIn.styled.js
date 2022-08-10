@@ -67,6 +67,9 @@ export const SignInInput = styled.input`
   font-size: 14px;
   padding-left: 20px;
   color: black;
+  &:focus {
+    outline: none;
+  }
   ::placeholder {
     font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
@@ -80,16 +83,6 @@ export const SignInButtonGroup = styled.div`
   align-items: center;
   gap: 15px;
 `;
-// export const SignInButton = styled.button`
-//   font-family: 'Cafe24Ssurround';
-//   background-color: #d7703f;
-//   border-radius: 10px;
-//   border: none;
-//   color: #f7f6f1;
-//   width: 132px;
-//   height: 50px;
-//   font-size: 17px;
-// `;
 export const SignInFooter = styled.div`
   left: 50%;
   transform: translateX(-50%);

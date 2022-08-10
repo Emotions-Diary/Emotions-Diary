@@ -47,6 +47,7 @@ function SignUp() {
   const strengthBarRef = useRef();
   const passwdSpanRef = useRef();
   const passwdReSpanRef = useRef();
+  const telSpanRef = useRef();
 
   const regExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -63,6 +64,9 @@ function SignUp() {
   useEffect(() => {
     if (passwd !== passwdRe) {
       passwdReSpanRef.current.style.display = 'block';
+      passwdSpanRef.current.style.display = 'none';
+    } else if (passwdRe === '') {
+      passwdReSpanRef.current.style.display = 'none';
     } else {
       passwdReSpanRef.current.style.display = 'none';
     }
@@ -183,8 +187,8 @@ function SignUp() {
             onChange={setPhone}
             minLength="9"
             maxLength="13"
-            placeholder="Phone number"
-            pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}"
+            placeholder="Phone number (XX*-XXX*-XXXX)"
+            pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
             required
           />
         </SignUpInputGroup>
