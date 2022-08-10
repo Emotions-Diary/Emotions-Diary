@@ -1,10 +1,16 @@
 // React import
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import useInput from '../../hooks/useInput';
+
+// Redux import
 import { useDispatch, useSelector } from 'react-redux';
 import { addEmotionThunk } from '../../redux/modules/emotion';
-import { useText } from './WriteCustomHook';
-// style import
+
+// Package import
+import moment from 'moment';
+
+// Style import
 import {
   WriteBox,
   WriteHeader,
@@ -24,6 +30,8 @@ import {
   TextArea2,
   MongleLogo,
 } from './Write.styled';
+
+// Image import
 import {
   m_blue_OL,
   m_blue,
@@ -35,16 +43,13 @@ import {
   m_pink,
   m_yellow_OL,
   m_yellow,
-  mongle_logo,
 } from '../../static/images/images';
-// moment import
-import moment from 'moment';
 
 const Write = () => {
-  const [title, onChangeTitle] = useText('');
-  const [content, onChangeContent] = useText('');
-  const [nickName, onChangeNickName] = useText('');
-  const [password, onChangePassword] = useText('');
+  const [title, onChangeTitle] = useInput('');
+  const [content, onChangeContent] = useInput('');
+  const [nickName, onChangeNickName] = useInput('');
+  const [password, onChangePassword] = useInput('');
   const [link, setLink] = useState('');
   const [link_OL, setLink_OL] = useState('');
   const [createDate, setCreateDate] = useState([]);
@@ -119,7 +124,9 @@ const Write = () => {
     setCreateDate(nowTime);
   }, []);
 
-  const combineWrite = () => {
+  const combineWrite = (e) => {
+    e.preventDefault();
+
     const newWrite = {
       emotion_title: title,
       emotion_content: content,
@@ -137,11 +144,7 @@ const Write = () => {
   return (
     <>
       <MongleLogo />
-      <WriteBox
-        onSubmit={(e) => {
-          e.preventDefault();
-        }}
-      >
+      <WriteBox onSubmit={(e) => combineWrite(e)}>
         <WriteHeader>
           <ArrowArea onClick={backMain}>
             <ArrowBack onClick={backMain} />
@@ -177,7 +180,7 @@ const Write = () => {
         <WriteDescript>오늘 몽글러의 기분은?</WriteDescript>
         <InputArea>
           <TextArea> 닉네임 :</TextArea>{' '}
-          <WriteInput value={nickName} onChange={onChangeNickName} />
+          <WriteInput value={nickName} onChange={onChangeNickName} required />
         </InputArea>
         <InputArea2>
           <TextArea2> 비밀번호 :</TextArea2>
@@ -185,19 +188,22 @@ const Write = () => {
             type="password"
             value={password}
             onChange={onChangePassword}
+            required
           />
         </InputArea2>
         <TitleArea
           placeholder="제목"
           value={title}
           onChange={onChangeTitle}
+          required
         ></TitleArea>
         <ContentArea
           placeholder="오늘 하루 어땠나요?&#13;&#10;다른 몽글러들에게 추천 해주고 싶은 노래가 있나요?&#13;&#10;오늘 가장 행복했던 일은 무엇인가요?"
           value={content}
           onChange={onChangeContent}
+          required
         ></ContentArea>
-        <WriteButton onClick={combineWrite}>작성하기</WriteButton>
+        <WriteButton type="submit">작성하기</WriteButton>
       </WriteBox>
     </>
   );
