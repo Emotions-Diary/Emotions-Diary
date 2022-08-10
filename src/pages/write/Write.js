@@ -1,6 +1,6 @@
 // React import
 import { useState, useEffect } from 'react';
-import { useLinkClickHandler, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 
 // Redux import
@@ -147,7 +147,6 @@ const Write = () => {
 
     if(!click) {
       alert('몽글이를 선택해주세요!');
-      return;
     } 
     else {
       dispatch(addEmotionThunk(newWrite));
@@ -222,4 +221,5 @@ const Write = () => {
     </>
   );
 };
+
 export default Write;
