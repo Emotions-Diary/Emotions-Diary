@@ -23,7 +23,8 @@ import {
   SignInDescriptSpan,
   SignInFormGroup,
   SignUpInputGroup,
-  SignUpInput,
+  SignUpInputPassword,
+  SignUpInputPhone,
   SignUpButtonGroup,
   SignUpFooter,
   AlertSpan,
@@ -116,6 +117,7 @@ function SignUp() {
         passwdReSpanRef.current.style.display = 'block';
       } else {
         dispatch(addUserThunk(newAccount));
+        alert('몽글러가 되신걸 축하드립니다!🎉');
         navigate('/');
       }
     } else {
@@ -155,7 +157,7 @@ function SignUp() {
             </EmailButton>
           </EmailGroup>
           <AlertSpan ref={emailSpanRef}></AlertSpan>
-          <SignUpInput
+          <SignUpInputPassword
             type="password"
             value={passwd}
             onChange={setPasswd}
@@ -169,7 +171,7 @@ function SignUp() {
             ref={strengthBarRef}
           />
           <AlertSpan ref={passwdSpanRef}>패스워드가 취약합니다!</AlertSpan>
-          <SignUpInput
+          <SignUpInputPassword
             type="password"
             value={passwdRe}
             onChange={setPasswdRe}
@@ -182,13 +184,13 @@ function SignUp() {
         사파리에서는 type="tel"만 지정해도 전화번호 형식으로 사용가능"
         하지만 다른 브라우저에서는 정규식 사용 필요
         */}
-          <SignUpInput
+          <SignUpInputPhone
             type="tel"
             value={phone}
             onChange={setPhone}
             minLength="9"
             maxLength="13"
-            placeholder="Phone number (XX*-XXX*-XXXX)"
+            placeholder="Phone number (00*-000*-0000)"
             pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
             required
           />
