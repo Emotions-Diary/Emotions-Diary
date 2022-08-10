@@ -47,7 +47,6 @@ function SignUp() {
   const strengthBarRef = useRef();
   const passwdSpanRef = useRef();
   const passwdReSpanRef = useRef();
-  const telSpanRef = useRef();
 
   const regExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -65,9 +64,11 @@ function SignUp() {
     if (passwd !== passwdRe) {
       passwdReSpanRef.current.style.display = 'block';
       passwdSpanRef.current.style.display = 'none';
-    } else if (passwdRe === '') {
-      passwdReSpanRef.current.style.display = 'none';
     } else {
+      passwdReSpanRef.current.style.display = 'none';
+    }
+
+    if (passwdRe === '') {
       passwdReSpanRef.current.style.display = 'none';
     }
   }, [passwdRe]);
@@ -193,10 +194,6 @@ function SignUp() {
           />
         </SignUpInputGroup>
         <SignUpButtonGroup>
-          {/* <SignUpButton type="submit">회원가입</SignUpButton>
-          <SignUpButton type="button" onClick={() => navigate('/')}>
-            뒤로가기
-          </SignUpButton> */}
           <Button
             type={'submit'}
             styled={{
