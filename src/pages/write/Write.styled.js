@@ -21,17 +21,17 @@ export const WriteBox = styled.form`
   background: rgba(255, 255, 255);
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
-  border: 9px solid #d7703f;
+  border: 9px solid #e66a2f;
 `;
 export const WriteHeader = styled.div`
   position: absolute;
   top: 0;
-  background-color: #d7703f;
+  background-color: #e66a2f;
   width: 100%;
   height: 10%;
 `;
 export const ArrowBack = styled(MdOutlineArrowBackIosNew)`
-  color: #d7703f;
+  color: #e66a2f;
   margin-left: 6px;
   margin-top: 6px;
   &:hover {
@@ -59,7 +59,7 @@ export const WriteDescript = styled.div`
 `;
 export const WriteInput = styled.input`
   font-family: 'Cafe24Ssurround';
-  border-color: #d7703f;
+  border-color: #e66a2f;
   width: 100px;
   margin-left: 10px;
   border-left-width: 0px;
@@ -77,7 +77,7 @@ export const WriteInput = styled.input`
 `;
 export const WriteInput2 = styled.input`
   /* font-family: 'Cafe24Ssurround'; */
-  border-color: #d7703f;
+  border-color: #e66a2f;
   width: 120px;
   margin-right: 23px;
   border-left-width: 0px;
@@ -103,7 +103,7 @@ export const InputArea2 = styled.div`
   left: 180px;
   display: flex;
   margin-left: 50px;
-  color: #d7703f;
+  color: #e66a2f;
 `;
 export const InputArea = styled.div`
   font-size: 12px;
@@ -114,7 +114,7 @@ export const InputArea = styled.div`
   top: 225px;
   display: flex;
   margin-left: 50px;
-  color: #d7703f;
+  color: #e66a2f;
 `;
 export const TextArea = styled.div`
   padding-top: 5px;
@@ -147,7 +147,7 @@ export const MongleArea = styled.div`
 export const TitleArea = styled.textarea`
   width: 80%;
   height: 18px;
-  outline: 2px solid #d7703f;
+  outline: 2px solid #e66a2f;
   position: absolute;
   top: 275px;
   border: none;
@@ -168,7 +168,7 @@ export const ContentArea = styled.textarea`
   margin-left: 40px;
   position: absolute;
   top: 315px;
-  outline: 2px solid #d7703f;
+  outline: 2px solid #e66a2f;
   border: none;
   border-radius: 10px;
   padding-top: 10px;
@@ -183,7 +183,7 @@ export const WriteButton = styled.button`
   width: 132px;
   height: 50px;
   font-size: 17px;
-  background-color: #d7703f;
+  background-color: #e66a2f;
   outline: none;
   border: none;
   border-radius: 10px;
@@ -195,6 +195,6 @@ export const WriteButton = styled.button`
   padding-top: 3px;
   &:hover {
     cursor: pointer;
-    outline: #d7703f solid 1.5px;
+    outline: #e66a2f solid 1.5px;
   }
 `;
