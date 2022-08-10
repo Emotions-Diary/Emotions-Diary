@@ -139,8 +139,6 @@ const Write = () => {
 
     if (link === '') {
       alert('몽글이를 선택해주세요!');
-    } else if (nickName.length > 4 || nickName.length < 2) {
-      alert('2~4글자 사이의 닉네임을 입력해주세요!');
     } else {
       dispatch(addEmotionThunk(newWrite));
       navigate('/');
@@ -187,7 +185,13 @@ const Write = () => {
         <InputArea>
           <TextArea> 닉네임 :</TextArea>{' '}
           <WriteInputArea>
-            <WriteInput value={nickName} onChange={onChangeNickName} required />
+            <WriteInput
+              value={nickName}
+              onChange={onChangeNickName}
+              maxLength={4}
+              minLength={2}
+              required
+            />
           </WriteInputArea>
         </InputArea>
         <InputArea2>
