@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { addEmotionThunk } from '../../redux/modules/emotion';
-import axios from 'axios';
+import { useText } from './WriteCustomHook';
 // style import
 import {
   WriteBox,
@@ -22,7 +22,7 @@ import {
   WriteButton,
   TextArea,
   TextArea2,
-  MongleLogo
+  MongleLogo,
 } from './Write.styled';
 import {
   m_blue_OL,
@@ -41,10 +41,11 @@ import {
 import moment from 'moment';
 
 const Write = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [nickName, setNickName] = useState('');
-  const [password, setPassword] = useState('');
+  // const [title, setTitle] = useState('');
+  const [title, onChangeTitle] = useText('');
+  const [content, onChangeContent] = useText('');
+  const [nickName, onChangeNickName] = useText('');
+  const [password, onChangePassword] = useText('');
   const [link, setLink] = useState('');
   const [link_OL, setLink_OL] = useState('');
   const [createDate, setCreateDate] = useState([]);
@@ -53,13 +54,14 @@ const Write = () => {
   const [greenState, setGreenState] = useState(true);
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
+  const [colorState, setColorState] = useState([]);
   const userEmail = useSelector((state) => state.user.userEmail);
-  const navigate = useNavigate()
-
+  const navigate = useNavigate();
 
   const backMain = () => {
-    navigate("/")
-  }
+    navigate('/');
+  };
+
   const clickBlue = () => {
     setLink(m_blue);
     setLink_OL(m_blue_OL);
@@ -131,85 +133,74 @@ const Write = () => {
       user_nickName: nickName,
     };
     dispatch(addEmotionThunk(newWrite));
-    navigate("/")
+    navigate('/');
   };
 
   return (
-  <>
-    <MongleLogo/>
-    <WriteBox
-      onSubmit={(e) => {
-        e.preventDefault();
-      }}
-    >
-      <WriteHeader>
-        <ArrowArea onClick={backMain}>
-          <ArrowBack onClick={backMain}/>
-        </ArrowArea>
-      </WriteHeader>
-      <MongleArea>
-        <WriteMongle
-          emotion={orangeState ? m_orange : m_orange_OL}
-          emotion_OL={m_orange_OL}
-          onClick={clickOrange}
-        />
-        <WriteMongle
-          emotion={blueState ? m_blue : m_blue_OL}
-          emotion_OL={m_blue_OL}
-          onClick={clickBlue}
-        />
-        <WriteMongle
-          emotion={pinkState ? m_pink : m_pink_OL}
-          emotion_OL={m_pink_OL}
-          onClick={clickPink}
-        />
-        <WriteMongle
-          emotion={yellowState ? m_yellow : m_yellow_OL}
-          emotion_OL={m_yellow_OL}
-          onClick={clickYellow}
-        />
-        <WriteMongle
-          emotion={greenState ? m_green : m_green_OL}
-          emotion_OL={m_green_OL}
-          onClick={clickGreen}
-        />
-      </MongleArea>
-      <WriteDescript>오늘 몽글러의 기분은?</WriteDescript>
-      <InputArea>
-        <TextArea> 닉네임 :</TextArea>{' '}
-        <WriteInput
-          value={nickName}
-          onChange={(event) => {
-            setNickName(event.target.value);
-          }}
-        />
-      </InputArea>
-      <InputArea2>
-        <TextArea2> 비밀번호 :</TextArea2>
-        <WriteInput2
-          type="password"
-          value={password}
-          onChange={(event) => {
-            setPassword(event.target.value);
-          }}
-        />
-      </InputArea2>
-      <TitleArea
-        placeholder="제목"
-        value={title}
-        onChange={(event) => {
-          setTitle(event.target.value);
+    <>
+      <MongleLogo />
+      <WriteBox
+        onSubmit={(e) => {
+          e.preventDefault();
         }}
-      ></TitleArea>
-      <ContentArea
-        placeholder="오늘 하루 어땠나요?&#13;&#10;다른 몽글러들에게 추천 해주고 싶은 노래가 있나요?&#13;&#10;오늘 가장 행복했던 일은 무엇인가요?"
-        value={content}
-        onChange={(event) => {
-          setContent(event.target.value);
-        }}
-      ></ContentArea>
-      <WriteButton onClick={combineWrite}>작성하기</WriteButton>
-    </WriteBox>
+      >
+        <WriteHeader>
+          <ArrowArea onClick={backMain}>
+            <ArrowBack onClick={backMain} />
+          </ArrowArea>
+        </WriteHeader>
+        <MongleArea>
+          <WriteMongle
+            emotion={orangeState ? m_orange : m_orange_OL}
+            emotion_OL={m_orange_OL}
+            onClick={clickOrange}
+          />
+          <WriteMongle
+            emotion={blueState ? m_blue : m_blue_OL}
+            emotion_OL={m_blue_OL}
+            onClick={clickBlue}
+          />
+          <WriteMongle
+            emotion={pinkState ? m_pink : m_pink_OL}
+            emotion_OL={m_pink_OL}
+            onClick={clickPink}
+          />
+          <WriteMongle
+            emotion={yellowState ? m_yellow : m_yellow_OL}
+            emotion_OL={m_yellow_OL}
+            onClick={clickYellow}
+          />
+          <WriteMongle
+            emotion={greenState ? m_green : m_green_OL}
+            emotion_OL={m_green_OL}
+            onClick={clickGreen}
+          />
+        </MongleArea>
+        <WriteDescript>오늘 몽글러의 기분은?</WriteDescript>
+        <InputArea>
+          <TextArea> 닉네임 :</TextArea>{' '}
+          <WriteInput value={nickName} onChange={onChangeNickName} />
+        </InputArea>
+        <InputArea2>
+          <TextArea2> 비밀번호 :</TextArea2>
+          <WriteInput2
+            type="password"
+            value={password}
+            onChange={onChangePassword}
+          />
+        </InputArea2>
+        <TitleArea
+          placeholder="제목"
+          value={title}
+          onChange={onChangeTitle}
+        ></TitleArea>
+        <ContentArea
+          placeholder="오늘 하루 어땠나요?&#13;&#10;다른 몽글러들에게 추천 해주고 싶은 노래가 있나요?&#13;&#10;오늘 가장 행복했던 일은 무엇인가요?"
+          value={content}
+          onChange={onChangeContent}
+        ></ContentArea>
+        <WriteButton onClick={combineWrite}>작성하기</WriteButton>
+      </WriteBox>
     </>
   );
 };
