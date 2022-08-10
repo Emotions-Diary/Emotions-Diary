@@ -1,6 +1,6 @@
 // React import
 import { useState, useEffect } from 'react';
-import { useLinkClickHandler, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 
 // Redux import
@@ -220,4 +220,5 @@ const Write = () => {
     </>
   );
 };
+
 export default Write;
