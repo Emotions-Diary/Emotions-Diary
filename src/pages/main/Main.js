@@ -13,6 +13,7 @@ import { useNavigate } from 'react-router-dom';
 // Component import
 import Circle from '../../components/circle/Circle';
 import Skeleton from '../../components/skeleton/Skeleton';
+import Mongle from '../../components/mongle/Mongle';
 
 // Style import
 import {
@@ -28,7 +29,6 @@ import {
   MainCalanderMonth,
   MainCalanderMonthText,
   MainMongleBox,
-  MainMongle,
   MainMongleAdd,
 } from './Main.styled';
 
@@ -64,7 +64,7 @@ const Main = () => {
 
   return (
     <>
-      <MongleLogo />
+      <MongleLogo onClick={() => navigate('/')} />
       <MongleText>몽글러들의 하루는 어땠나요?</MongleText>
       <MainButton onClick={() => signOut()}>LOGOUT</MainButton>
       <MainBox>
@@ -92,8 +92,9 @@ const Main = () => {
           ) : (
             emotion.map((emo) => {
               return (
-                <MainMongle
+                <Mongle
                   key={emo.id}
+                  id={emo.id}
                   emotion={emo.emotion_link}
                   emotion_OL={emo.emotion_link_OL}
                 />

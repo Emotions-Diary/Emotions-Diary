@@ -2,7 +2,7 @@ import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
 export const getEmotionThunk = createAsyncThunk(
-  'emotion/getEmotionThunk',
+  'emotion/getEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
       .get('http://localhost:5001/emotion')
@@ -13,7 +13,7 @@ export const getEmotionThunk = createAsyncThunk(
 );
 
 export const addEmotionThunk = createAsyncThunk(
-  'emotion/addemotionThunk',
+  'emotion/addEmotion',
   async (payload, thunkAPI) => {
     console.log(payload);
     const data = {
@@ -34,6 +34,19 @@ export const addEmotionThunk = createAsyncThunk(
   }
 );
 
+export const patchEmotionThunk = createAsyncThunk(
+  'emotion/patchEmotion',
+  async (payload, thunkAPI) => {
+    const data = await axios
+      .patch(`http://localhost:5001/emotion/${payload.id}`, payload.newEmotionData)
+      .then((res) => res.data)
+      .catch((err) => console.err(err));
+
+			console.log(data);
+    return thunkAPI.fulfillWithValue(data);
+  }
+);
+
 const initialState = {
   is_loaded: true,
   emotion: [],
@@ -51,6 +64,12 @@ const emotionSlice = createSlice({
       state.is_loaded = false;
       state.emotion = action.payload;
     });
+		builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
+			const newState = state.emotion.filter((emo) => emo.id !== action.payload.id);
+			newState.push(action.payload);
+			console.log(newState);
+			state.emotion = newState;
+		});
   },
 });
 

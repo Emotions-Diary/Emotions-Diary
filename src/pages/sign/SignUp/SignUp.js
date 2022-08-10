@@ -23,7 +23,8 @@ import {
   SignInDescriptSpan,
   SignInFormGroup,
   SignUpInputGroup,
-  SignUpInput,
+  SignUpInputPassword,
+  SignUpInputPhone,
   SignUpButtonGroup,
   SignUpFooter,
   AlertSpan,
@@ -47,7 +48,6 @@ function SignUp() {
   const strengthBarRef = useRef();
   const passwdSpanRef = useRef();
   const passwdReSpanRef = useRef();
-  const telSpanRef = useRef();
 
   const regExp =
     /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
@@ -65,9 +65,11 @@ function SignUp() {
     if (passwd !== passwdRe) {
       passwdReSpanRef.current.style.display = 'block';
       passwdSpanRef.current.style.display = 'none';
-    } else if (passwdRe === '') {
-      passwdReSpanRef.current.style.display = 'none';
     } else {
+      passwdReSpanRef.current.style.display = 'none';
+    }
+
+    if (passwdRe === '') {
       passwdReSpanRef.current.style.display = 'none';
     }
   }, [passwdRe]);
@@ -115,6 +117,7 @@ function SignUp() {
         passwdReSpanRef.current.style.display = 'block';
       } else {
         dispatch(addUserThunk(newAccount));
+        alert('몽글러가 되신걸 축하드립니다!🎉');
         navigate('/');
       }
     } else {
@@ -154,7 +157,7 @@ function SignUp() {
             </EmailButton>
           </EmailGroup>
           <AlertSpan ref={emailSpanRef}></AlertSpan>
-          <SignUpInput
+          <SignUpInputPassword
             type="password"
             value={passwd}
             onChange={setPasswd}
@@ -168,7 +171,7 @@ function SignUp() {
             ref={strengthBarRef}
           />
           <AlertSpan ref={passwdSpanRef}>패스워드가 취약합니다!</AlertSpan>
-          <SignUpInput
+          <SignUpInputPassword
             type="password"
             value={passwdRe}
             onChange={setPasswdRe}
@@ -181,22 +184,18 @@ function SignUp() {
         사파리에서는 type="tel"만 지정해도 전화번호 형식으로 사용가능"
         하지만 다른 브라우저에서는 정규식 사용 필요
         */}
-          <SignUpInput
+          <SignUpInputPhone
             type="tel"
             value={phone}
             onChange={setPhone}
             minLength="9"
             maxLength="13"
-            placeholder="Phone number (XX*-XXX*-XXXX)"
+            placeholder="Phone number (00*-000*-0000)"
             pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{4}"
             required
           />
         </SignUpInputGroup>
         <SignUpButtonGroup>
-          {/* <SignUpButton type="submit">회원가입</SignUpButton>
-          <SignUpButton type="button" onClick={() => navigate('/')}>
-            뒤로가기
-          </SignUpButton> */}
           <Button
             type={'submit'}
             styled={{

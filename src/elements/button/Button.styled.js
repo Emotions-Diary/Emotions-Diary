@@ -3,7 +3,7 @@ import '../../static/fonts/fonts.css';
 
 export const StyledButton = styled.button`
   font-family: 'Cafe24Ssurround';
-  background-color: #e66a2f;
+  background-color: ${(props) => (props.bg_color ? props.bg_color : '#e66a2f')};
   border-radius: 10px;
   border: none;
   color: #f7f6f1;
