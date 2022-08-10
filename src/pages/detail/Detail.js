@@ -166,7 +166,7 @@ const Detail = () => {
 
 			{/* <CommentGetNickname></CommentGetNickname>
 			<CommentGetComment></CommentGetComment> */}
-			<hr></hr>
+			
 		</WriteBox>
 	);
 };

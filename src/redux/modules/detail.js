@@ -6,7 +6,7 @@ const initialState = [
 		id: 0,
 		name: '이름',
 		title: '제목',
-        date: '2022/08/11',
+		date: '2022/08/11',
 		contents: '수정할거야',
 		comment: '댓글',
 	},
@@ -52,14 +52,6 @@ export const userSlice = createSlice({
 	},
 });
 
-// updateUsername: (state, action) => {
-//   state.value.map((user) => {
-//     if (user.id === action.payload.id) {
-//       user.username = action.payload.username;
-//     }
-//   });
-// },
-
 export const {
 	addUser,
 	addComment,
@@ -68,4 +60,5 @@ export const {
 	editDiary,
 	getDiary,
 } = userSlice.actions;
+
 export default userSlice.reducer;

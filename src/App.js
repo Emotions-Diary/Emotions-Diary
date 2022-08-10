@@ -12,27 +12,6 @@ import Detail from './pages/detail/Detail';
 import { useSelector } from 'react-redux';
 
 function App() {
-	// const loginStatus = useSelector((state) => state.user.loginStatus);
-	// return (
-	// 	<Routes>
-	// 		<Route
-	// 			path="/"
-	// 			exact="true"
-	// 			element={loginStatus ? <Main /> : <SignIn />}
-	// 		/>
-	// 		<Route path="/signup" element={<SignUp />} />
-	// 		<Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
-	// 		{/* <Route
-	// 			path="/detail/:id"
-	// 			element={loginStatus ? <Detail /> : <SignIn />}
-	// 		/> */}
-	// 		{/* <Route path="/detail/:id" element={<Detail />} /> */}
-	// 		<Route path="/detail" element={<Detail />} />
-	// 	</Routes>
-	// );
-
-	//필상님꺼
-	// =======
 	const loginStatus = useSelector((state) => state.user.loginStatus);
 
 	return (
@@ -43,8 +22,12 @@ function App() {
 				element={loginStatus ? <Main /> : <SignIn />}
 			/>
 			<Route path="/signup" element={<SignUp />} />
-			<Route path="/write" element={loginStatus ? <Write /> : <Write />} />
-			<Route path="/detail" element={loginStatus ? <Detail /> : <Detail />} />
+			<Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
+			<Route
+				path="/detail/:id"
+				element={loginStatus ? <Detail /> : <SignIn />}
+			/>
+			<Route path="*" element={<SignIn />} />
 		</Routes>
 	);
 }

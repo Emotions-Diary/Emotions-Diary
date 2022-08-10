@@ -16,7 +16,7 @@ export const SignUpBox = styled.form`
 export const SignInHeader = styled.div`
   position: absolute;
   top: 0;
-  background-color: #d7703f;
+  background-color: #e66a2f;
   width: 100%;
   height: 10%;
 `;
@@ -68,10 +68,13 @@ export const EmailInput = styled.input`
   background-color: #f7f6f1;
   width: 70%;
   height: 35px;
-  border: 2px solid #d7703f;
+  border: 2px solid #e66a2f;
   border-radius: 10px 0 0 10px;
   font-size: 14px;
   padding-left: 20px;
+  &:focus {
+    outline: none;
+  }
   ::placeholder {
     font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
@@ -81,20 +84,26 @@ export const EmailButton = styled.button`
   width: 32%;
   font-size: 17px;
   font-family: 'Cafe24Ssurround';
-  background-color: #d7703f;
+  background-color: #e66a2f;
   border-radius: 0 10px 10px 0;
   border: none;
   color: #f7f6f1;
   font-size: 14px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const SignUpInput = styled.input`
   background-color: #f7f6f1;
   width: 91%;
   height: 35px;
   border-radius: 10px;
-  border: 2px solid #d7703f;
+  border: 2px solid #e66a2f;
   font-size: 14px;
   padding-left: 20px;
+  &:focus {
+    outline: none;
+  }
   ::placeholder {
     font-family: 'Cafe24Ssurround';
     color: #9b9b9b;
@@ -104,16 +113,6 @@ export const SignUpButtonGroup = styled.div`
   margin-top: 15px;
   display: flex;
   gap: 15px;
-`;
-export const SignUpButton = styled.button`
-  font-family: 'Cafe24Ssurround';
-  background-color: #d7703f;
-  border-radius: 10px;
-  border: none;
-  color: #f7f6f1;
-  width: 132px;
-  height: 50px;
-  font-size: 17px;
 `;
 export const SignUpFooter = styled.div`
   left: 50%;
