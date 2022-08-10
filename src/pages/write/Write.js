@@ -1,6 +1,6 @@
 // React import
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLinkClickHandler, useNavigate } from 'react-router-dom';
 import useInput from '../../hooks/useInput';
 
 // Redux import
@@ -58,6 +58,7 @@ const Write = () => {
   const [greenState, setGreenState] = useState(true);
   const [pinkState, setPinkState] = useState(true);
   const [yellowState, setYellowState] = useState(true);
+  const [click, setClick] = useState(false);
   const userEmail = useSelector((state) => state.user.userEmail);
   const navigate = useNavigate();
 
@@ -73,6 +74,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
+    setClick(!click);
   };
   const clickGreen = () => {
     setLink(m_green);
@@ -82,6 +84,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
+    setClick(!click);
   };
   const clickOrange = () => {
     setLink(m_orange);
@@ -91,6 +94,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setGreenState(true);
+    setClick(!click);
   };
   const clickPink = () => {
     setLink(m_pink);
@@ -100,6 +104,7 @@ const Write = () => {
     setGreenState(true);
     setYellowState(true);
     setOrangeState(true);
+    setClick(!click);
   };
   const clickYellow = () => {
     setLink(m_yellow);
@@ -109,7 +114,9 @@ const Write = () => {
     setOrangeState(true);
     setPinkState(true);
     setGreenState(true);
+    setClick(!click);
   };
+
   const dispatch = useDispatch();
 
   const nowTime = moment()
@@ -137,8 +144,15 @@ const Write = () => {
       user_email: userEmail,
       user_nickName: nickName,
     };
-    dispatch(addEmotionThunk(newWrite));
+
+    if(!click) {
+      alert('몽글이를 선택해주세요!');
+      return;
+    } 
+    else {
+      dispatch(addEmotionThunk(newWrite));
     navigate('/');
+    }
   };
 
   return (
