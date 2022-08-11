@@ -5,7 +5,7 @@ export const getEmotionThunk = createAsyncThunk(
   'emotion/getEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .get('http://localhost:5001/emotion')
+      .get('https://stark-wave-39012.herokuapp.com/emotion')
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
@@ -28,7 +28,7 @@ export const addEmotionThunk = createAsyncThunk(
       user_nickName: payload.user_nickName,
     };
     const resData = await axios
-      .post('http://localhost:5001/emotion', data)
+      .post('https://stark-wave-39012.herokuapp.com/emotion', data)
       .then((res) => res.data);
     return thunkAPI.fulfillWithValue(resData);
   }
@@ -38,7 +38,7 @@ export const patchEmotionThunk = createAsyncThunk(
   'emotion/patchEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .patch(`http://localhost:5001/emotion/${payload.id}`, payload.newEmotionData)
+      .patch(`https://stark-wave-39012.herokuapp.com/emotion/${payload.id}`, payload.newEmotionData)
       .then((res) => res.data)
       .catch((err) => console.err(err));
 
