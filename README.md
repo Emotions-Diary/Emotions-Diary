@@ -1,14 +1,14 @@
-#몽글 다이어리
+# 몽글 다이어리
 
 ![image](https://user-images.githubusercontent.com/107654769/184087207-119c8d22-4dc2-41eb-9427-dff4c27e4c5c.png)
 
 ---
-#프로젝트 소개
+📝 프로젝트 소개
 ---
 하루의 작은 일상을 공유하는 커뮤니티로 하루하루 본인들의 소소한 일상이나 기분을 남겨서 월 별로 모아서 볼 수 있게 만든 어플리케이션입니다.
 바쁜 일상에 지쳤을때, 기분 좋은 일이 생겼을때, 위로 받고 싶을때에 작지만 확실하게 본인의 하루를 간편하게 남겨서 공유해보세요!
 
-#프로젝트 개요
+# 프로젝트 개요
 ---
 <li>프로젝트명 : 몽글 다이어리</li>
 <li>개발 인원 : 프론트 3명(React)</li>
@@ -24,7 +24,7 @@
 <a href="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/5f9870d7-3cd9-45e8-a434-7d70e81c6d6f/%E1%84%8B%E1%85%B5%E1%86%AF%E1%84%80%E1%85%B5%E1%84%8C%E1%85%A1%E1%86%BC_%E1%84%8B%E1%85%AA%E1%84%8B%E1%85%B5%E1%84%8B%E1%85%A5%E1%84%91%E1%85%B3%E1%84%85%E1%85%A6%E1%84%8B%E1%85%B5%E1%86%B7_%E1%84%8E%E1%85%AC%E1%84%8C%E1%85%A9%E1%86%BC.pdf?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=AKIAT73L2G45EIPT3X45%2F20220811%2Fus-west-2%2Fs3%2Faws4_request&X-Amz-Date=20220811T074215Z&X-Amz-Expires=86400&X-Amz-Signature=94129e937761a8e592df780089e1f6805e64b83479adf3eadd8be574cf7b954e&X-Amz-SignedHeaders=host&response-content-disposition=filename%20%3D%22%25E1%2584%258B%25E1%2585%25B5%25E1%2586%25AF%25E1%2584%2580%25E1%2585%25B5%25E1%2584%258C%25E1%2585%25A1%25E1%2586%25BC_%25E1%2584%258B%25E1%2585%25AA%25E1%2584%258B%25E1%2585%25B5%25E1%2584%258B%25E1%2585%25A5%25E1%2584%2591%25E1%2585%25B3%25E1%2584%2585%25E1%2585%25A6%25E1%2584%258B%25E1%2585%25B5%25E1%2586%25B7_%25E1%2584%258E%25E1%2585%25AC%25E1%2584%258C%25E1%2585%25A9%25E1%2586%25BC.pdf%22&x-id=GetObject">와이어 프레임</a>
 ---
 
-#구성원
+👨‍👧‍👦 구성원
 ---
 |   이름    |         깃허브 주소         |                            역할 분담                            |
 | :-------: | :-------------------------: | :-------------------------------------------------------------: |
@@ -32,7 +32,7 @@
 | 👦 강인호  | https://github.com/duck9-papa | 작성 페이지, Front/Back 배포 |
 | 👦 성필상  | https://github.com/lucy-pill | 회원가입/로그인/상세 페이지 <br/> 레이아웃 작성 <br/>Front/Back 배포 |
 
-#API설계
+✏️ API설계
 ---
 <a href="https://teamsparta.notion.site/68213ae61b194200814a67d565e13f15?v=6b986b29144240cc832134d4b702b611">API설계 팀 노션</a>
 ---
@@ -47,7 +47,7 @@
 <h1>주요 기능 및 소개</h1>
 
 
-#로그인 기능
+🔎 로그인 기능
 ---
 ![KakaoTalk_20220811_170634220](https://user-images.githubusercontent.com/107654769/184092101-616f3187-64a2-40ac-a1e3-7cd74e1887e8.png)![KakaoTalk_20220811_171119572](https://user-images.githubusercontent.com/107654769/184091320-9e22d080-d4f2-4dc1-9bbb-0f9ba6b5b962.png)
 
