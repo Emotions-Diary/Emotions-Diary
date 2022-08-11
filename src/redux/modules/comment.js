@@ -15,7 +15,6 @@ export const getCommentThunk = createAsyncThunk(
 export const addCommentThunk = createAsyncThunk(
   'comment/addComment',
   async (payload, thunkAPI) => {
-
     const data = await axios
       .post('https://stark-wave-39012.herokuapp.com/comment', payload)
       .then((res) => res.data)
@@ -52,9 +51,9 @@ const commentSlice = createSlice({
       state.comment = action.payload;
     });
     builder.addCase(deleteCommentThunk.fulfilled, (state, action) => {
-      state.comment = state.comment.filter((com) => com.id !== action.payload); 
+      state.comment = state.comment.filter((com) => com.id !== action.payload);
     });
-  }
+  },
 });
 
 export default commentSlice.reducer;

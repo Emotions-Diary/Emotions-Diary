@@ -38,11 +38,14 @@ export const patchEmotionThunk = createAsyncThunk(
   'emotion/patchEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .patch(`https://stark-wave-39012.herokuapp.com/emotion/${payload.id}`, payload.newEmotionData)
+      .patch(
+        `https://stark-wave-39012.herokuapp.com/emotion/${payload.id}`,
+        payload.newEmotionData
+      )
       .then((res) => res.data)
       .catch((err) => console.err(err));
 
-			console.log(data);
+    console.log(data);
     return thunkAPI.fulfillWithValue(data);
   }
 );
@@ -64,12 +67,14 @@ const emotionSlice = createSlice({
       state.is_loaded = false;
       state.emotion = action.payload;
     });
-		builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
-			const newState = state.emotion.filter((emo) => emo.id !== action.payload.id);
-			newState.push(action.payload);
-			console.log(newState);
-			state.emotion = newState;
-		});
+    builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
+      const newState = state.emotion.filter(
+        (emo) => emo.id !== action.payload.id
+      );
+      newState.push(action.payload);
+      console.log(newState);
+      state.emotion = newState;
+    });
   },
 });
 
