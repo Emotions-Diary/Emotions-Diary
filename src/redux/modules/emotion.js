@@ -5,7 +5,7 @@ export const getEmotionThunk = createAsyncThunk(
   'emotion/getEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .get('https://mongleDiary.herokuapp.com/emotion')
+      .get('https://monglediary.herokuapp.com/emotion')
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
@@ -28,7 +28,7 @@ export const addEmotionThunk = createAsyncThunk(
       user_nickName: payload.user_nickName,
     };
     const resData = await axios
-      .post('https://mongleDiary.herokuapp.com/emotion', data)
+      .post('https://monglediary.herokuapp.com/emotion', data)
       .then((res) => res.data);
     return thunkAPI.fulfillWithValue(resData);
   }
@@ -39,7 +39,7 @@ export const patchEmotionThunk = createAsyncThunk(
   async (payload, thunkAPI) => {
     const data = await axios
       .patch(
-        `https://mongleDiary.herokuapp.com/emotion/${payload.id}`,
+        `https://monglediary.herokuapp.com/emotion/${payload.id}`,
         payload.newEmotionData
       )
       .then((res) => res.data)
