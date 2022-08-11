@@ -28,3 +28,6 @@ yarn-error.log*
 #stark-wave-39012
 wireFrame.pdf
 
+#env
+.env
+
