@@ -222,6 +222,15 @@ const Detail = () => {
               required
             />
             <CommentAddButton type="submit">등록</CommentAddButton>
+            <Button
+                type={'button'}
+                onClick={changeStatus}
+                styled={{
+                  width: '22%',
+                  ft_size: '11px',
+                }}
+                text={'등록'}
+              />
           </CommentGroup>
           <CommentTextGroup>
             {is_loaded ? (
