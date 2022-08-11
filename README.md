@@ -35,6 +35,13 @@
 #API설계
 ---
 <a href="https://teamsparta.notion.site/68213ae61b194200814a67d565e13f15?v=6b986b29144240cc832134d4b702b611">API설계 팀 노션</a>
+---
+<h3>아키텍처</h3>
+
+---
+
+
+![KakaoTalk_20220811_180828682](https://user-images.githubusercontent.com/107654769/184128677-d8ef0086-cbc6-4ac0-a0ad-2d91c6ecb957.png)
 
 
 <h1>주요 기능 및 소개</h1>
