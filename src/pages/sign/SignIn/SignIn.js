@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { getUserThunk, signInAction } from '../../../redux/modules/user';
 
 // Component import
-import Circle from '../../../components/Circle/Circle';
+import Circle from '../../../components/circle/Circle';
 import Button from '../../../elements/button/Button';
 
 // Style import
@@ -73,6 +73,8 @@ const SignIn = () => {
 			}
 		});
 	};
+	const a = process.env.REACT_APP_API_URL
+	console.log(a)
 
 	return (
 		<SignInBox onSubmit={(event) => signInAccount(event)}>

@@ -8,7 +8,7 @@ import { useDispatch } from 'react-redux';
 import { emailDupCheckThunk, addUserThunk } from '../../../redux/modules/user';
 
 // Component import
-import Circle from '../../../components/Circle/Circle';
+import Circle from '../../../components/circle/Circle';
 import Button from '../../../elements/button/Button';
 
 // Package import

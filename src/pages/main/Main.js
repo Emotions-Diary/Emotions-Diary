@@ -11,7 +11,7 @@ import moment from 'moment';
 import { useNavigate } from 'react-router-dom';
 
 // Component import
-import Circle from '../../components/Circle/Circle';
+import Circle from '../../components/circle/Circle';
 import Skeleton from '../../components/skeleton/Skeleton';
 import Mongle from '../../components/mongle/Mongle';
 

@@ -12,20 +12,20 @@ import Detail from './pages/detail/Detail';
 import { useSelector } from 'react-redux';
 
 function App() {
-	const loginStatus = useSelector((state) => state.user.loginStatus);
+	const status = useSelector((state) => state.user.loginStatus);
 
 	return (
 		<Routes>
 			<Route
 				path="/"
 				exact="true"
-				element={loginStatus ? <Main /> : <SignIn />}
+				element={status ? <Main /> : <SignIn />}
 			/>
 			<Route path="/signup" element={<SignUp />} />
-			<Route path="/write" element={loginStatus ? <Write /> : <SignIn />} />
+			<Route path="/write" element={status ? <Write /> : <SignIn />} />
 			<Route
 				path="/detail/:id"
-				element={loginStatus ? <Detail /> : <Detail />}
+				element={status ? <Detail /> : <SignIn />}
 			/>
 			<Route path="*" element={<SignIn />} />
 		</Routes>

@@ -58,19 +58,18 @@ const Detail = () => {
   const [title, setTitle] = useInput(emotion[0].emotion_title);
   const [content, setContent] = useInput(emotion[0].emotion_content);
   const [password, setPassword] = useInput('');
-  const [nickName, setNickName] = useInput('');
-  const [comment, setComment] = useInput('');
+  const [nickName, setNickName] = useState('');
+  const [comment, setComment] = useState('');
 
   const titleRef = useRef();
   const contentRef = useRef();
 
   const changeStatus = () => {
-    if(modify) {
-      titleRef.current.style.backgroundColor = '#e66a2f'
+    if (modify) {
+      titleRef.current.style.backgroundColor = '#e66a2f';
       titleRef.current.style.color = '#f7f6f1';
-    }
-    else {
-      titleRef.current.style.backgroundColor = '#f7f6f1'
+    } else {
+      titleRef.current.style.backgroundColor = '#f7f6f1';
       titleRef.current.style.color = '#000000';
     }
     titleRef.current.disabled = !titleRef.current.disabled;
@@ -105,6 +104,8 @@ const Detail = () => {
       comment_comment: comment,
     };
     dispatch(addCommentThunk(newCommentData));
+    setNickName('');
+    setComment('');
   };
 
   const signOut = () => {
@@ -208,7 +209,7 @@ const Detail = () => {
             <CommentNicknameInput
               type="text"
               value={nickName}
-              onChange={setNickName}
+              onChange={(e) => setNickName(e.target.value)}
               placeholder="닉네임"
               maxLength={4}
               minLength={2}
@@ -217,7 +218,7 @@ const Detail = () => {
             <CommentContentInput
               type="text"
               value={comment}
-              onChange={setComment}
+              onChange={(e) => setComment(e.target.value)}
               placeholder="내용을 입력하세요."
               required
             />
@@ -225,7 +226,7 @@ const Detail = () => {
           </CommentGroup>
           <CommentTextGroup>
             {is_loaded ? (
-              <div>로딩중</div>
+              <div>Loading..</div>
             ) : (
               commentsReverse.map((com) => {
                 if (parseInt(id) === com.emotion_id) {
