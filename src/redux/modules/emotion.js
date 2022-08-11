@@ -41,11 +41,6 @@ export const patchEmotionThunk = createAsyncThunk(
       .patch(`${URL}/emotion/${payload.id}`, payload.newEmotionData)
       .then((res) => res.data)
       .catch((err) => console.err(err));
-<<<<<<< HEAD
-
-    console.log(data);
-=======
->>>>>>> 2949098f7cbf8a6b08d455b49785fdeb773d6b2a
     return thunkAPI.fulfillWithValue(data);
   }
 );
@@ -77,15 +72,6 @@ const emotionSlice = createSlice({
       state.is_loaded = false;
       state.emotion = action.payload;
     });
-<<<<<<< HEAD
-    builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
-      const newState = state.emotion.filter(
-        (emo) => emo.id !== action.payload.id
-      );
-      newState.push(action.payload);
-      console.log(newState);
-      state.emotion = newState;
-=======
 		builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
 			const newState = state.emotion.filter((emo) => emo.id !== action.payload.id);
 			newState.push(action.payload);
@@ -93,7 +79,6 @@ const emotionSlice = createSlice({
 		});
     builder.addCase(deleteEmotionThunk.fulfilled, (state, action) => {
       state.emotion = state.emotion.filter((emo) => emo.id !== action.payload); 
->>>>>>> 2949098f7cbf8a6b08d455b49785fdeb773d6b2a
     });
   },
 });
