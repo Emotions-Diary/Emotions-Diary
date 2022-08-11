@@ -30,10 +30,12 @@ export const MainButton = styled.button`
 	width: 150px;
 	height: 65px;
 	border-radius: 10px;
+	border: 2px solid black;
 	background-color: black;
 	color: white;
 	font-size: 20px;
 	&:hover {
+		cursor: pointer;
 		background-color: #f7f6f1;
 		color: black;
 	}

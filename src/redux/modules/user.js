@@ -1,14 +1,16 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const URL = process.env.REACT_APP_API_URL;
+
 export const emailDupCheckThunk = createAsyncThunk(
 	'user/emailDupCheck',
 	async (payload, thunkAPI) => {
 		let check = false;
 		const resData = await axios
-			.get('https://sheltered-sands-82519.herokuapp.com/user')
+			.get(`${URL}/user`)
 			.then((res) => res.data)
-			.catch((error) => console.log(error));
+			.catch((error) => console.err(error));
 		resData.forEach((user) => {
 			if (payload === user.email) check = true;
 		});
@@ -19,14 +21,8 @@ export const emailDupCheckThunk = createAsyncThunk(
 export const addUserThunk = createAsyncThunk(
 	'user/addUser',
 	async (payload, thunkAPI) => {
-		// const data = {
-		// 	email: payload.email,
-		// 	password: payload.password,
-		// 	phone: payload.phone,
-		// };
-
 		const resData = await axios
-			.post('https://sheltered-sands-82519.herokuapp.com/user', payload)
+			.post(`${URL}/user`, payload)
 			.then((res) => res.data);
 		return thunkAPI.fulfillWithValue(resData);
 	}
@@ -36,7 +32,7 @@ export const getUserThunk = createAsyncThunk(
 	'user/getUser',
 	async (payload, thunkAPI) => {
 		const resData = await axios
-			.get('https://sheltered-sands-82519.herokuapp.com/user')
+			.get(`${URL}/user`)
 			.then((res) => res.data);
 		const match = resData.find((user) => user.email === payload);
 		return thunkAPI.fulfillWithValue(match);

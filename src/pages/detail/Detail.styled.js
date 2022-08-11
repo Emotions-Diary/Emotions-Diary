@@ -4,33 +4,35 @@ import { MdOutlineArrowBackIosNew } from 'react-icons/md';
 import { mongle_logo } from '../../static/images/images';
 
 export const MongleLogo = styled.div`
-	position: absolute;
-	background-image: url(${mongle_logo});
-	background-size: contain;
-	background-repeat: no-repeat;
-	top: 50px;
-	left: 50px;
-	width: 270px;
-	height: 100px;
-	&:hover {
-		cursor: pointer;
-	}
+  position: absolute;
+  background-image: url(${mongle_logo});
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 50px;
+  left: 50px;
+  width: 270px;
+  height: 100px;
+  &:hover {
+    cursor: pointer;
+  }
 `;
 export const MainButton = styled.button`
-	font-family: 'Cafe24Ssurround';
-	position: absolute;
-	top: 55px;
-	right: 55px;
-	width: 150px;
-	height: 65px;
-	border-radius: 10px;
-	background-color: black;
-	color: white;
-	font-size: 20px;
-	&:hover {
-		background-color: #f7f6f1;
-		color: black;
-	}
+  font-family: 'Cafe24Ssurround';
+  position: absolute;
+  top: 55px;
+  right: 55px;
+  width: 150px;
+  height: 65px;
+  border: 2px solid black;
+  border-radius: 10px;
+  background-color: black;
+  color: white;
+  font-size: 20px;
+  &:hover {
+    cursor: pointer;
+    background-color: #f7f6f1;
+    color: black;
+  }
 `;
 export const DetailBox = styled.div`
   width: 485px;
@@ -129,11 +131,15 @@ export const UpdateButtonGroup = styled.div`
   gap: 13px;
 `;
 export const UpdatePassword = styled.input`
+  width: 200px;
   border-radius: 10px;
   background-color: #f7f6f1;
   border: none;
   outline: 2px solid #e66a2f;
   padding-left: 5px;
+  ::placeholder {
+    font-family: 'Cafe24Ssurround';
+  }
 `;
 export const DetailNickname = styled.div`
   font-size: 12px;
@@ -172,31 +178,31 @@ export const DetailInputArea = styled.div`
 `;
 export const CommentForm = styled.form``;
 export const CommentGroup = styled.div`
-	top: 435px;
-	position: absolute;
+  top: 435px;
+  position: absolute;
   width: 92%;
   display: flex;
 `;
 export const CommentTextGroup = styled.div`
-	font-family: 'Cafe24Ssurround';
-	position: absolute;
-	left: 50%;
-	transform: translateX(-50%);
-	top: 490px;
-	width: 84%;
-	height: 100px;
-	display: flex;
-	flex-direction: column;
-	gap: 12px;
-	overflow-y: scroll;
-	&::-webkit-scrollbar {
-		width: 10px;
-	}
-	&::-webkit-scrollbar-thumb {
-		background-color: #e66a2f;
-		border-radius: 5px;
-	}
-`
+  font-family: 'Cafe24Ssurround';
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 490px;
+  width: 84%;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: #e66a2f;
+    border-radius: 5px;
+  }
+`;
 export const CommentNicknameInput = styled.input`
   background-color: #f7f6f1;
   width: 30%;
@@ -243,7 +249,7 @@ export const CommentAddButton = styled.button`
   color: #f7f6f1;
   font-size: 13px;
   margin-left: 10px;
-	&:hover {
-		cursor: pointer;
-	}
+  &:hover {
+    cursor: pointer;
+  }
 `;

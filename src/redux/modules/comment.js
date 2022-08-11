@@ -1,23 +1,24 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const URL = process.env.REACT_APP_API_URL;
+
 export const getCommentThunk = createAsyncThunk(
   'comment/getComment',
   async (payload, thunkAPI) => {
     const data = await axios
-      .get('https://sheltered-sands-82519.herokuapp.com/comment')
+      .get(`${URL}/comment`)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
   }
 );
-
 export const addCommentThunk = createAsyncThunk(
   'comment/addComment',
   async (payload, thunkAPI) => {
 
     const data = await axios
-      .post('https://sheltered-sands-82519.herokuapp.com/comment', payload)
+      .post(`${URL}/comment`, payload)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
@@ -27,7 +28,7 @@ export const deleteCommentThunk = createAsyncThunk(
   'comment/deleteComment',
   async (payload, thunkAPI) => {
     await axios
-      .delete(`https://sheltered-sands-82519.herokuapp.com/comment/${payload}`)
+      .delete(`${URL}/comment/${payload}`)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return payload;
