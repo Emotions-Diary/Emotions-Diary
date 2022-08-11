@@ -36,7 +36,7 @@ export const getUserThunk = createAsyncThunk(
 	'user/getUser',
 	async (payload, thunkAPI) => {
 		const resData = await axios
-			.get(process.env.REACT_APP_API_URL)
+			.get(process.env.REACT_APP_API_URL+"/user")
 			.then((res) => res.data);
 		const match = resData.find((user) => user.email === payload);
 		return thunkAPI.fulfillWithValue(match);
