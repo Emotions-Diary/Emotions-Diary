@@ -5,7 +5,7 @@ export const getCommentThunk = createAsyncThunk(
   'comment/getComment',
   async (payload, thunkAPI) => {
     const data = await axios
-      .get('http://localhost:5001/comment')
+      .get('https://sheltered-sands-82519.herokuapp.com/comment')
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
@@ -17,7 +17,7 @@ export const addCommentThunk = createAsyncThunk(
   async (payload, thunkAPI) => {
 
     const data = await axios
-      .post('http://localhost:5001/comment', payload)
+      .post('https://sheltered-sands-82519.herokuapp.com/comment', payload)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
@@ -26,8 +26,8 @@ export const addCommentThunk = createAsyncThunk(
 export const deleteCommentThunk = createAsyncThunk(
   'comment/deleteComment',
   async (payload, thunkAPI) => {
-    const data = await axios
-      .delete(`http://localhost:5001/comment/${payload}`)
+    await axios
+      .delete(`https://sheltered-sands-82519.herokuapp.com/comment/${payload}`)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return payload;
