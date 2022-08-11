@@ -25,4 +25,4 @@ yarn-error.log*
 
 wireFrame.pdf
 
-/src
+/server/db.json

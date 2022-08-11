@@ -51,5 +51,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "main": "index.js",
+  "repository": "https://Emotions-Diary@github.com/Emotions-Diary/Emotions-Diary.git",
+  "author": "lucy-pill <schmidtiana95@gmail.com>",
+  "license": "MIT"
 }
