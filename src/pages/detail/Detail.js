@@ -134,19 +134,21 @@ const Detail = () => {
     <>
       <MongleLogo onClick={() => navigate('/')} />
       <MainButton onClick={() => signOut()}>LOGOUT</MainButton>
-      <DetailBox>
+      <DetailBox color={emotion[0].emotion_color}>
         <EmotionForm
           name="emotionForm"
           onSubmit={(event) => emotionModify(event)}
         >
-          <WriteHeader>
+          <WriteHeader color={emotion[0].emotion_color}>
             <ArrowArea onClick={() => navigate('/')}>
-              <ArrowBack />
+              <ArrowBack color={emotion[0].emotion_color} />
             </ArrowArea>
           </WriteHeader>
-          <DetailInputArea>
-            <DetailNickname>{emotion[0].user_nickName}</DetailNickname>
-            <DetailDate>
+          <DetailInputArea color={emotion[0].emotion_color}>
+            <DetailNickname color={emotion[0].emotion_color}>
+              {emotion[0].user_nickName}
+            </DetailNickname>
+            <DetailDate color={emotion[0].emotion_color}>
               {emotion[0].emotion_createDate[0]}/
               {emotion[0].emotion_createDate[1].padStart(2, '0')}/
               {emotion[0].emotion_createDate[2]}
@@ -158,6 +160,7 @@ const Detail = () => {
           <TitleArea
             value={title}
             onChange={setTitle}
+            color={emotion[0].emotion_color}
             ref={titleRef}
             maxLength="18"
             disabled
@@ -166,6 +169,7 @@ const Detail = () => {
             value={content}
             onChange={setContent}
             ref={contentRef}
+            color={emotion[0].emotion_color}
             disabled
           >
             {emotion[0].emotion_content}
@@ -178,6 +182,7 @@ const Detail = () => {
                   value={password}
                   onChange={setPassword}
                   placeholder={'패스워드를 입력해주세요.'}
+                  color={emotion[0].emotion_color}
                   required
                 />
                 <Button
@@ -186,6 +191,7 @@ const Detail = () => {
                     width: '70px',
                     height: '30px',
                     ft_size: '11px',
+                    bg_color: emotion[0].emotion_color,
                   }}
                   text={'저장'}
                 />
@@ -210,6 +216,7 @@ const Detail = () => {
                     width: '70px',
                     height: '30px',
                     ft_size: '11px',
+                    bg_color: emotion[0].emotion_color,
                   }}
                   text={'수정'}
                 />
@@ -220,6 +227,7 @@ const Detail = () => {
                     width: '70px',
                     height: '30px',
                     ft_size: '11px',
+                    bg_color: '#cecece',
                   }}
                   text={'삭제'}
                 />
@@ -239,6 +247,7 @@ const Detail = () => {
               placeholder="닉네임"
               maxLength={4}
               minLength={2}
+              color={emotion[0].emotion_color}
               required
             />
             <CommentContentInput
@@ -246,11 +255,12 @@ const Detail = () => {
               value={comment}
               onChange={(e) => setComment(e.target.value)}
               placeholder="내용을 입력하세요."
+              color={emotion[0].emotion_color}
               required
             />
             <CommentAddButton type="submit">등록</CommentAddButton>
           </CommentGroup>
-          <CommentTextGroup>
+          <CommentTextGroup color={emotion[0].emotion_color}>
             {is_loaded ? (
               <div>Loading..</div>
             ) : (

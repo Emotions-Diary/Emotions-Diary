@@ -57,6 +57,7 @@ const Write = () => {
   const [password, onChangePassword] = useInput('');
   const [link, setLink] = useState('');
   const [link_OL, setLink_OL] = useState('');
+  const [color, setColor] = useState('');
   const [orangeState, setOrangeState] = useState(true);
   const [blueState, setBlueState] = useState(true);
   const [greenState, setGreenState] = useState(true);
@@ -77,6 +78,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
+    setColor('#4690ac');
   };
   const clickGreen = () => {
     setLink(m_green);
@@ -86,6 +88,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setOrangeState(true);
+    setColor('#4c9271');
   };
   const clickOrange = () => {
     setLink(m_orange);
@@ -95,6 +98,7 @@ const Write = () => {
     setYellowState(true);
     setPinkState(true);
     setGreenState(true);
+    setColor('#e66a2f');
   };
   const clickPink = () => {
     setLink(m_pink);
@@ -104,6 +108,7 @@ const Write = () => {
     setGreenState(true);
     setYellowState(true);
     setOrangeState(true);
+    setColor('#ffc5bb');
   };
   const clickYellow = () => {
     setLink(m_yellow);
@@ -113,6 +118,7 @@ const Write = () => {
     setOrangeState(true);
     setPinkState(true);
     setGreenState(true);
+    setColor('#efa800');
   };
 
   const dispatch = useDispatch();
@@ -133,6 +139,7 @@ const Write = () => {
       emotion_content: content,
       emotion_link: link,
       emotion_link_OL: link_OL,
+      emotion_color: color,
       emotion_password: password,
       emotion_createDate: nowTime,
       user_email: userEmail,

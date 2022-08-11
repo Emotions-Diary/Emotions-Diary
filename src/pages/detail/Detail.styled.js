@@ -26,7 +26,7 @@ export const MainButton = styled.button`
   border: 2px solid black;
   border-radius: 10px;
   background-color: black;
-  color: white;
+  color: #f7f6f1;
   font-size: 20px;
   &:hover {
     cursor: pointer;
@@ -42,13 +42,13 @@ export const DetailBox = styled.div`
   background-color: #f7f6f1;
   box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   border-radius: 20px;
-  border: 9px solid #e66a2f;
+  border: 9px solid ${(props) => props.color ? props.color : '#e66a2f'};
 `;
 export const EmotionForm = styled.form``;
 export const WriteHeader = styled.div`
   position: absolute;
   top: 0;
-  background-color: #e66a2f;
+  background-color: ${(props) => props.color ? props.color : '#e66a2f'};
   width: 100%;
   height: 10%;
 `;
@@ -64,7 +64,7 @@ export const ArrowArea = styled.div`
   }
 `;
 export const ArrowBack = styled(MdOutlineArrowBackIosNew)`
-  color: #e66a2f;
+  color: ${(props) => props.color ? props.color : '#e66a2f'};
   margin-left: 6px;
   margin-top: 6px;
   &:hover {
@@ -91,7 +91,7 @@ export const MongleArea = styled.div`
 export const TitleArea = styled.textarea`
   width: 61%;
   height: 23px;
-  outline: 2px solid #e66a2f;
+  outline: 2px solid ${(props) => props.color ? props.color : '#e66a2f'};
   position: absolute;
   top: 127px;
   border: none;
@@ -103,7 +103,7 @@ export const TitleArea = styled.textarea`
   resize: none;
   color: #f7f6f1;
   font-size: 14px;
-  background-color: #e66a2f;
+  background-color: ${(props) => props.color ? props.color : '#e66a2f'};
   font-family: 'Cafe24Ssurround';
 `;
 export const ContentArea = styled.textarea`
@@ -113,7 +113,7 @@ export const ContentArea = styled.textarea`
   margin-left: 40px;
   position: absolute;
   top: 193px;
-  outline: 2px solid #e66a2f;
+  outline: 2px solid ${(props) => props.color ? props.color : '#e66a2f'};
   border: none;
   color: black;
   border-radius: 10px;
@@ -135,7 +135,7 @@ export const UpdatePassword = styled.input`
   border-radius: 10px;
   background-color: #f7f6f1;
   border: none;
-  outline: 2px solid #e66a2f;
+  outline: 2px solid ${(props) => props.color ? props.color : '#e66a2f'};
   padding-left: 5px;
   ::placeholder {
     font-family: 'Cafe24Ssurround';
@@ -151,7 +151,7 @@ export const DetailNickname = styled.div`
   left: 10px;
   display: flex;
   margin-right: 110px;
-  color: #e66a2f;
+  color: ${(props) => props.color ? props.color : '#e66a2f'};
 `;
 export const DetailDate = styled.div`
   font-size: 12px;
@@ -163,7 +163,7 @@ export const DetailDate = styled.div`
   left: 180px;
   display: flex;
   margin-left: 50px;
-  color: #e66a2f;
+  color: ${(props) => props.color ? props.color : '#e66a2f'};
 `;
 export const DetailInputArea = styled.div`
   font-size: 12px;
@@ -174,7 +174,7 @@ export const DetailInputArea = styled.div`
   top: 94px;
   display: flex;
   margin-left: 120px;
-  color: #e66a2f;
+  color: ${(props) => props.color ? props.color : '#e66a2f'};
 `;
 export const CommentForm = styled.form``;
 export const CommentGroup = styled.div`
@@ -199,7 +199,7 @@ export const CommentTextGroup = styled.div`
     width: 10px;
   }
   &::-webkit-scrollbar-thumb {
-    background-color: #e66a2f;
+    background-color: ${(props) => props.color ? props.color : '#e66a2f'};
     border-radius: 5px;
   }
 `;
@@ -208,7 +208,7 @@ export const CommentNicknameInput = styled.input`
   width: 30%;
   height: 35px;
   border-style: none;
-  border-bottom: 2px solid #e66a2f;
+  border-bottom: 2px solid ${(props) => props.color ? props.color : '#e66a2f'};
   font-size: 14px;
   padding-left: 10px;
   padding-right: 10px;
@@ -228,7 +228,7 @@ export const CommentContentInput = styled.input`
   width: 70%;
   height: 35px;
   border-style: none;
-  border-bottom: 2px solid #e66a2f;
+  border-bottom: 2px solid ${(props) => props.color ? props.color : '#e66a2f'};
   font-size: 14px;
   padding-left: 10px;
   font-family: 'Cafe24Ssurround';
@@ -243,7 +243,7 @@ export const CommentContentInput = styled.input`
 export const CommentAddButton = styled.button`
   width: 22%;
   font-family: 'Cafe24Ssurround';
-  background-color: #e66a2f;
+  background-color: black;
   border-radius: 10px;
   border: none;
   color: #f7f6f1;
@@ -251,5 +251,6 @@ export const CommentAddButton = styled.button`
   margin-left: 10px;
   &:hover {
     cursor: pointer;
+    border: 2px solid #f7f6f1;
   }
 `;
