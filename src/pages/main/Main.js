@@ -91,14 +91,16 @@ const Main = () => {
             <Skeleton />
           ) : (
             emotion.map((emo) => {
-              return (
-                <Mongle
-                  key={emo.id}
-                  id={emo.id}
-                  emotion={emo.emotion_link}
-                  emotion_OL={emo.emotion_link_OL}
-                />
-              );
+              if (parseInt(emo.emotion_createDate[1]) === now.month() + 1) {
+                return (
+                  <Mongle
+                    key={emo.id}
+                    id={emo.id}
+                    emotion={emo.emotion_link}
+                    emotion_OL={emo.emotion_link_OL}
+                  />
+                );
+              }
             })
           )}
         </MainMongleBox>

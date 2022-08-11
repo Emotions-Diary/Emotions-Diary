@@ -23,6 +23,7 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
+<<<<<<< HEAD
 
 # /server/db.json
 #stark-wave-39012
@@ -31,3 +32,8 @@ wireFrame.pdf
 #env
 .env
 
+=======
+wireFrame.pdf
+
+/src
+>>>>>>> 2949098f7cbf8a6b08d455b49785fdeb773d6b2a

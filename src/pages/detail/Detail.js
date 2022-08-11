@@ -5,7 +5,10 @@ import useInput from '../../hooks/useInput';
 // Redux import
 import { signInAction } from '../../redux/modules/user';
 import { useDispatch, useSelector } from 'react-redux';
-import { patchEmotionThunk } from '../../redux/modules/emotion';
+import {
+  patchEmotionThunk,
+  deleteEmotionThunk,
+} from '../../redux/modules/emotion';
 import { addCommentThunk, getCommentThunk } from '../../redux/modules/comment';
 
 // Component import
@@ -108,6 +111,16 @@ const Detail = () => {
     setComment('');
   };
 
+  const deleteEmotion = () => {
+    const password = prompt('패스워드를 입력해주세요.');
+    if (emotion[0].emotion_password === password) {
+      dispatch(deleteEmotionThunk(parseInt(id)));
+      navigate('/');
+    } else {
+      alert('비밀번호가 일치하지 않습니다.');
+    }
+  };
+
   const signOut = () => {
     dispatch(signInAction({ userEmail: '', loginStatus: false }));
     navigate('/');
@@ -164,6 +177,7 @@ const Detail = () => {
                   type="password"
                   value={password}
                   onChange={setPassword}
+                  placeholder={'패스워드를 입력해주세요.'}
                   required
                 />
                 <Button
@@ -188,16 +202,28 @@ const Detail = () => {
                 />
               </>
             ) : (
-              <Button
-                type={'button'}
-                onClick={changeStatus}
-                styled={{
-                  width: '70px',
-                  height: '30px',
-                  ft_size: '11px',
-                }}
-                text={'수정'}
-              />
+              <>
+                <Button
+                  type={'button'}
+                  onClick={changeStatus}
+                  styled={{
+                    width: '70px',
+                    height: '30px',
+                    ft_size: '11px',
+                  }}
+                  text={'수정'}
+                />
+                <Button
+                  type={'button'}
+                  onClick={deleteEmotion}
+                  styled={{
+                    width: '70px',
+                    height: '30px',
+                    ft_size: '11px',
+                  }}
+                  text={'삭제'}
+                />
+              </>
             )}
           </UpdateButtonGroup>
         </EmotionForm>
