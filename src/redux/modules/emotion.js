@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 
+const URL = process.env.REACT_APP_API_URL;
+
 export const getEmotionThunk = createAsyncThunk(
   'emotion/getEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .get('https://sheltered-sands-82519.herokuapp.com/emotion')
+      .get(`${URL}/emotion`)
       .then((res) => res.data)
       .catch((err) => console.err(err));
     return thunkAPI.fulfillWithValue(data);
   }
 );
-
 export const addEmotionThunk = createAsyncThunk(
   'emotion/addEmotion',
   async (payload, thunkAPI) => {
-    console.log(payload);
     const data = {
       emotion_id: payload.emotion_id,
       emotion_title: payload.emotion_title,
@@ -28,22 +28,29 @@ export const addEmotionThunk = createAsyncThunk(
       user_nickName: payload.user_nickName,
     };
     const resData = await axios
-      .post('https://sheltered-sands-82519.herokuapp.com/emotion', data)
+      .post(`${URL}/emotion`, data)
       .then((res) => res.data);
     return thunkAPI.fulfillWithValue(resData);
   }
 );
-
 export const patchEmotionThunk = createAsyncThunk(
   'emotion/patchEmotion',
   async (payload, thunkAPI) => {
     const data = await axios
-      .patch(`https://sheltered-sands-82519.herokuapp.com/emotion/${payload.id}`, payload.newEmotionData)
+      .patch(`${URL}/emotion/${payload.id}`, payload.newEmotionData)
       .then((res) => res.data)
       .catch((err) => console.err(err));
-
-			console.log(data);
     return thunkAPI.fulfillWithValue(data);
+  }
+);
+export const deleteEmotionThunk = createAsyncThunk(
+  'emotion/deleteEmotion',
+  async (payload, thunkAPI) => {
+    await axios
+      .delete(`${URL}/emotion/${payload}`)
+      .then((res) => res.data)
+      .catch((err) => console.err(err));
+    return payload;
   }
 );
 
@@ -67,9 +74,11 @@ const emotionSlice = createSlice({
 		builder.addCase(patchEmotionThunk.fulfilled, (state, action) => {
 			const newState = state.emotion.filter((emo) => emo.id !== action.payload.id);
 			newState.push(action.payload);
-			console.log(newState);
 			state.emotion = newState;
 		});
+    builder.addCase(deleteEmotionThunk.fulfilled, (state, action) => {
+      state.emotion = state.emotion.filter((emo) => emo.id !== action.payload); 
+    });
   },
 });
 

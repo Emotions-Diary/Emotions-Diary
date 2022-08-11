@@ -23,11 +23,13 @@ export const MainButton = styled.button`
 	right: 55px;
 	width: 150px;
 	height: 65px;
+  border: 2px solid black;
 	border-radius: 10px;
 	background-color: black;
 	color: white;
 	font-size: 20px;
 	&:hover {
+    cursor: pointer;
 		background-color: #f7f6f1;
 		color: black;
 	}
