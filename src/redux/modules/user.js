@@ -6,7 +6,7 @@ export const emailDupCheckThunk = createAsyncThunk(
 	async (payload, thunkAPI) => {
 		let check = false;
 		const resData = await axios
-			.get('https://stark-wave-39012.herokuapp.com/user')
+			.get('https://mongleDiary.herokuapp.com/user')
 			.then((res) => res.data)
 			.catch((error) => console.log(error));
 		resData.forEach((user) => {
@@ -26,7 +26,7 @@ export const addUserThunk = createAsyncThunk(
 		// };
 
 		const resData = await axios
-			.post('https://stark-wave-39012.herokuapp.com/user', payload)
+			.post('https://mongleDiary.herokuapp.com/user', payload)
 			.then((res) => res.data);
 		return thunkAPI.fulfillWithValue(resData);
 	}
@@ -36,7 +36,7 @@ export const getUserThunk = createAsyncThunk(
 	'user/getUser',
 	async (payload, thunkAPI) => {
 		const resData = await axios
-			.get('https://stark-wave-39012.herokuapp.com/user')
+			.get('https://mongleDiary.herokuapp.com/user')
 			.then((res) => res.data);
 		const match = resData.find((user) => user.email === payload);
 		return thunkAPI.fulfillWithValue(match);
