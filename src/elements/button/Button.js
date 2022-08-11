@@ -10,6 +10,7 @@ const Button = ({ type, text, onClick, styled, disabled }) => {
       ft_size={styled.ft_size}
       pd={styled.pd}
       bg_color={styled.bg_color}
+      color={styled.color}
     >
       {text}
     </StyledButton>
