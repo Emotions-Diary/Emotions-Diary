@@ -17,6 +17,18 @@ import Mongle from '../../components/mongle/Mongle';
 
 // Style import
 import {
+  m_blue_OL,
+  m_blue,
+  m_green_OL,
+  m_green,
+  m_orange_OL,
+  m_orange,
+  m_pink_OL,
+  m_pink,
+  m_yellow_OL,
+  m_yellow,
+} from '../../static/images/images';
+import {
   MongleLogo,
   MongleText,
   MainButton,
@@ -36,7 +48,14 @@ const Main = () => {
   const now = moment();
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const emotion = useSelector((state) => state.emotion.emotion);
+  // const emotion = useSelector((state) => state.emotion.emotion);
+  const emotion = [
+    { emotion_link: m_blue, emotion_link_OL: m_blue_OL, id: 1 },
+    { emotion_link: m_green, emotion_link_OL: m_green_OL, id: 2 },
+    { emotion_link: m_orange, emotion_link_OL: m_orange_OL, id: 3 },
+    { emotion_link: m_pink, emotion_link_OL: m_pink_OL, id: 4 },
+    { emotion_link: m_yellow, emotion_link_OL: m_yellow_OL, id: 5 },
+  ];
   const is_loaded = useSelector((state) => state.emotion.is_loaded);
   const months = [
     'January',
@@ -91,16 +110,16 @@ const Main = () => {
             <Skeleton />
           ) : (
             emotion.map((emo) => {
-              if (parseInt(emo.emotion_createDate[1]) === now.month() + 1) {
-                return (
-                  <Mongle
-                    key={emo.id}
-                    id={emo.id}
-                    emotion={emo.emotion_link}
-                    emotion_OL={emo.emotion_link_OL}
-                  />
-                );
-              }
+              // if (parseInt(emo.emotion_createDate[1]) === now.month() + 1) {
+              return (
+                <Mongle
+                  key={emo.id}
+                  id={emo.id}
+                  emotion={emo.emotion_link}
+                  emotion_OL={emo.emotion_link_OL}
+                />
+              );
+              // }
             })
           )}
         </MainMongleBox>

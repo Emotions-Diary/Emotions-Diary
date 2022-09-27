@@ -23,22 +23,6 @@ export const MongleText = styled.div`
   font-size: 33px;
 `;
 export const MainButton = styled.button`
-<<<<<<< HEAD
-  font-family: 'Cafe24Ssurround';
-  position: absolute;
-  top: 55px;
-  right: 55px;
-  width: 150px;
-  height: 65px;
-  border-radius: 10px;
-  background-color: black;
-  color: white;
-  font-size: 20px;
-  &:hover {
-    background-color: #f7f6f1;
-    color: black;
-  }
-=======
 	font-family: 'Cafe24Ssurround';
 	position: absolute;
 	top: 55px;
@@ -55,7 +39,6 @@ export const MainButton = styled.button`
 		background-color: #f7f6f1;
 		color: black;
 	}
->>>>>>> 2949098f7cbf8a6b08d455b49785fdeb773d6b2a
 `;
 export const MainBox = styled.div`
   width: 1130px;
