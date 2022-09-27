@@ -20,6 +20,18 @@ import { useNavigate, useParams } from 'react-router-dom';
 
 // Style import
 import {
+  m_blue_OL,
+  m_blue,
+  m_green_OL,
+  m_green,
+  m_orange_OL,
+  m_orange,
+  m_pink_OL,
+  m_pink,
+  m_yellow_OL,
+  m_yellow,
+} from '../../static/images/images';
+import {
   MongleLogo,
   MainButton,
   DetailBox,
@@ -50,7 +62,10 @@ const Detail = () => {
   const { id } = useParams();
 
   const emotions = useSelector((state) => state.emotion.emotion);
-  const emotion = emotions.filter((emotion) => emotion.id === parseInt(id));
+  // const emotion = emotions.filter((emotion) => emotion.id === parseInt(id));
+  const emotion = [
+    { emotion_link: m_blue, emotion_link_OL: m_blue_OL, id: 1 ,emotion_title : "오늘의 하루" ,emotion_content:"재밌었다 하루종일 잠을 잤다.",emotion_color:"blue"}
+  ];
 
   const comments = useSelector((state) => state.comment.comment);
   const commentsReverse = [...comments].reverse();
@@ -149,9 +164,9 @@ const Detail = () => {
               {emotion[0].user_nickName}
             </DetailNickname>
             <DetailDate color={emotion[0].emotion_color}>
-              {emotion[0].emotion_createDate[0]}/
+              {/* {emotion[0].emotion_createDate[0]}/
               {emotion[0].emotion_createDate[1].padStart(2, '0')}/
-              {emotion[0].emotion_createDate[2]}
+              {emotion[0].emotion_createDate[2]} */}
             </DetailDate>
           </DetailInputArea>
           <MongleArea>

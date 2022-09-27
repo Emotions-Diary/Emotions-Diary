@@ -150,18 +150,18 @@ const Write = () => {
       alert('몽글이를 선택해주세요!');
     } else {
       dispatch(addEmotionThunk(newWrite));
-      navigate('/');
+      navigate('/main');
     }
   };
 
   const signOut = () => {
     dispatch(signInAction({ userEmail: '', loginStatus: false }));
-    navigate('/');
+    navigate('/main');
   };
 
   return (
     <>
-      <MongleLogo onClick={() => navigate('/')} />
+      <MongleLogo onClick={() => navigate('/main')} />
       <MainButton onClick={() => signOut()}>LOGOUT</MainButton>
       <WriteBox onSubmit={(e) => combineWrite(e)}>
         <WriteHeader>
@@ -224,6 +224,7 @@ const Write = () => {
           placeholder="제목"
           value={title}
           onChange={onChangeTitle}
+          maxLength={18}
           required
         ></TitleArea>
         <ContentArea
