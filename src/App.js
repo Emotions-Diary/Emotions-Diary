@@ -17,15 +17,9 @@ function App() {
   return (
     <Routes>
       <Route path="/" exact="true" element={status ? <Main /> : <SignIn />} />
-      <Route path="/main" element={<Main />} />
       <Route path="/signup" element={<SignUp />} />
-      {/* <Route path="/write" element={status ? <Write /> : <SignIn />} /> */}
-      <Route path="/write" element={<Write />} />
-      <Route
-        path="/detail/:id"
-        element={<Detail />}
-        // element={status ? <Detail /> : <SignIn />}
-      />
+      <Route path="/write" element={status ? <Write /> : <SignIn />} />
+      <Route path="/detail/:id" element={status ? <Detail /> : <SignIn />} />
       <Route path="*" element={<SignIn />} />
     </Routes>
   );
